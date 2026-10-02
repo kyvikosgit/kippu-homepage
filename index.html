@@ -90,11 +90,13 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 
 /* how */
 .feats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.feat{background:var(--fill);border-radius:14px;padding:24px 22px}
-.feat .no{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
-  background:var(--brand);color:#fff;border-radius:8px;font-size:12.5px;font-weight:900}
-.feat h3{font-size:16.5px;font-weight:800;margin:12px 0 6px}
-.feat p{font-size:13px;color:var(--sub);line-height:1.7}
+.feat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px}
+.feat .stage{display:flex;align-items:center;justify-content:space-between}
+.feat .stage i{font-style:normal;background:var(--brand-tint);color:var(--brand);
+  border-radius:7px;padding:5px 10px;font-size:12.5px;font-weight:800}
+.feat .en{font-size:10.5px;letter-spacing:.2em;color:var(--meta);font-weight:700}
+.feat h3{font-size:17px;font-weight:800;margin:16px 0 7px;letter-spacing:-.01em}
+.feat p{font-size:13.5px;color:var(--sub);line-height:1.75}
 
 /* app */
 .appband{background:var(--brand-tint);border-radius:18px;padding:clamp(28px,4vw,44px);
@@ -140,9 +142,9 @@ footer a:hover{color:var(--ink)}
 <div class="wrap">
 
   <section class="hero">
-    <div class="cap">TICKETS & EXPERIENCES</div>
-    <h1>이번 주말, 뭐 볼까?</h1>
-    <p>예매부터 QR 입장, 전시장 속 체험까지 — 전시의 티켓과 경험을 담는 하나의 앱, KIPPU.</p>
+    <div class="cap">BEYOND VIEWING</div>
+    <h1>전시, 보는 것에서<br>겪는 것으로</h1>
+    <p>예매와 입장, 전시장 안의 상호작용, 관람 후의 보상까지 — KIPPU는 관람 전체를 하나의 경험으로 설계하는 전시 경험 앱입니다.</p>
     <div class="btns">
       <a class="cta" href="#now">지금 전시 보기</a>
       <a class="cta ghost" href="#app">앱 다운로드</a>
@@ -174,21 +176,30 @@ footer a:hover{color:var(--ink)}
   </section>
 
   <section class="sec" id="how">
-    <div class="h"><h2>이용 방법</h2></div>
+    <div class="h"><h2>관람 전부터, 관람 후까지</h2></div>
     <div class="feats">
-      <div class="feat"><span class="no">1</span><h3>티켓 등록</h3>
-        <p>판매처에서 구매한 예매번호를 앱에 등록하면 QR 입장권으로 전환됩니다. 티켓은 계정에 보관되어 어느 기기에서든 유지됩니다.</p></div>
-      <div class="feat"><span class="no">2</span><h3>입장하고 체험</h3>
-        <p>전시장 안내판의 QR을 스캔하면 미션이 시작됩니다. 전시물을 찾고, 조각을 수집해 잠긴 마지막 방을 여세요.</p></div>
-      <div class="feat"><span class="no">3</span><h3>탐험가 등급</h3>
-        <p>전시 하나를 완주할 때마다 관람이 집계됩니다. 등급이 오를수록 할인과 초대가 열립니다.</p></div>
+      <div class="feat">
+        <div class="stage"><i>관람 전</i><span class="en">TICKET</span></div>
+        <h3>예매번호가 QR 입장권으로</h3>
+        <p>판매처에서 구매한 예매번호를 등록하면 바로 입장권이 됩니다. 티켓은 계정에 보관되어 어느 기기에서든 유지됩니다.</p>
+      </div>
+      <div class="feat">
+        <div class="stage"><i>관람 중</i><span class="en">EXPERIENCE</span></div>
+        <h3>전시장이 응답하는 관람</h3>
+        <p>전시장 곳곳의 QR로 해설과 상호작용, 수집까지 — 전시마다 설계된 경험 레이어가 열립니다. 관람이 참여가 됩니다.</p>
+      </div>
+      <div class="feat">
+        <div class="stage"><i>관람 후</i><span class="en">REWARD</span></div>
+        <h3>기록이 쌓이고, 등급이 오릅니다</h3>
+        <p>관람 기록이 계정에 남고 등급이 오릅니다. 등급이 오를수록 다음 전시의 할인과 초대가 먼저 열립니다.</p>
+      </div>
     </div>
   </section>
 
   <section class="sec" id="app">
     <div class="appband">
       <div>
-        <h2><i>KIPPU</i> 앱으로 전부 됩니다</h2>
+        <h2>새로운 차원의 전시 경험, <i>KIPPU</i></h2>
         <p>2026년 11월, App Store와 Google Play에서 공개됩니다.</p>
       </div>
       <div class="badges">
