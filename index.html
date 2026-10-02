@@ -90,13 +90,46 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 
 /* how */
 .feats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.feat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px}
+.feat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 16px 24px;display:flex;flex-direction:column}
+.feat .vis{height:190px;border-radius:12px;background:var(--fill);position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.feat .tx{padding:0 10px}
 .feat .stage{display:flex;align-items:center;justify-content:space-between}
 .feat .stage i{font-style:normal;background:var(--brand-tint);color:var(--brand);
   border-radius:7px;padding:5px 10px;font-size:12.5px;font-weight:800}
 .feat .en{font-size:10.5px;letter-spacing:.2em;color:var(--meta);font-weight:700}
-.feat h3{font-size:17px;font-weight:800;margin:16px 0 7px;letter-spacing:-.01em}
+.feat h3{font-size:17px;font-weight:800;margin:14px 0 7px;letter-spacing:-.01em}
 .feat p{font-size:13.5px;color:var(--sub);line-height:1.75}
+/* 비네트 1 — 앱 티켓 */
+.vTicket{width:208px;background:#fff;border-radius:14px;padding:14px 16px 15px;
+  box-shadow:0 10px 28px rgba(17,17,17,.1);transform:rotate(-3deg)}
+.vTicket .r1{display:flex;align-items:center;justify-content:space-between}
+.vTicket .r1 b{font-size:13px;font-weight:900;letter-spacing:.01em}
+.vTicket .dot{width:7px;height:7px;border-radius:50%;background:var(--brand)}
+.vTicket svg{display:block;margin:12px auto 10px}
+.vTicket .r2{text-align:center;font-size:10.5px;color:var(--sub);font-weight:600}
+/* 비네트 2 — 작품 스캔 */
+.vScan{position:relative;width:196px}
+.vScan .art{width:100%;height:116px;border-radius:10px;object-fit:cover;display:block}
+.vScan .fr{position:absolute;inset:-9px -9px auto;height:134px;pointer-events:none}
+.vScan .fr i{position:absolute;width:20px;height:20px;border:2.5px solid var(--brand)}
+.vScan .fr i:nth-child(1){left:0;top:0;border-right:0;border-bottom:0;border-radius:6px 0 0 0}
+.vScan .fr i:nth-child(2){right:0;top:0;border-left:0;border-bottom:0;border-radius:0 6px 0 0}
+.vScan .fr i:nth-child(3){left:0;bottom:0;border-right:0;border-top:0;border-radius:0 0 0 6px}
+.vScan .fr i:nth-child(4){right:0;bottom:0;border-left:0;border-top:0;border-radius:0 0 6px 0}
+.vScan .tip{position:relative;margin:16px auto 0;width:max-content;background:#fff;border-radius:999px;
+  box-shadow:0 8px 22px rgba(17,17,17,.1);padding:8px 14px;font-size:11.5px;font-weight:700;color:var(--ink);
+  display:flex;align-items:center;gap:7px}
+.vScan .tip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand)}
+/* 비네트 3 — 등급 */
+.vLv{width:208px;background:#fff;border-radius:14px;padding:16px;box-shadow:0 10px 28px rgba(17,17,17,.1)}
+.vLv .r1{display:flex;align-items:baseline;justify-content:space-between}
+.vLv .r1 b{font-size:17px;font-weight:900}
+.vLv .r1 span{font-size:10.5px;color:var(--meta);font-weight:700}
+.vLv .bar{margin-top:10px;height:8px;border-radius:999px;background:var(--fill);overflow:hidden}
+.vLv .bar i{display:block;height:100%;width:68%;border-radius:999px;background:var(--brand)}
+.vLv .cpn{margin-top:12px;border:1.5px dashed #E8C9BC;border-radius:9px;padding:8px 11px;
+  font-size:11px;font-weight:800;color:var(--brand);background:var(--brand-tint)}
 
 /* app */
 .appband{background:var(--brand-tint);border-radius:18px;padding:clamp(28px,4vw,44px);
@@ -179,19 +212,40 @@ footer a:hover{color:var(--ink)}
     <div class="h"><h2>관람 전부터, 관람 후까지</h2></div>
     <div class="feats">
       <div class="feat">
-        <div class="stage"><i>관람 전</i><span class="en">TICKET</span></div>
-        <h3>예매번호가 QR 입장권으로</h3>
-        <p>판매처에서 구매한 예매번호를 등록하면 바로 입장권이 됩니다. 티켓은 계정에 보관되어 어느 기기에서든 유지됩니다.</p>
+        <div class="vis"><div class="vTicket">
+          <div class="r1"><b>MONET 100</b><span class="dot"></span></div>
+          <svg width="68" height="68" viewBox="0 0 29 29" shape-rendering="crispEdges" aria-hidden="true"><rect width="29" height="29" fill="#fff"/><path fill="#111" d="M0 0h7v7H0zM22 0h7v7h-7zM0 22h7v7H0z"/><path fill="#fff" d="M1 1h5v5H1zM23 1h5v5h-5zM1 23h5v5H1z"/><path fill="#111" d="M2 2h3v3H2zM24 2h3v3h-3zM2 24h3v3H2zM9 0h2v2H9zM13 1h2v2h-2zM17 0h2v3h-2zM9 4h3v2H9zM14 4h2v3h-2zM18 4h2v2h-2zM0 9h2v2H0zM3 9h3v2H3zM9 9h2v3H9zM13 9h3v2h-3zM18 9h2v2h-2zM22 9h2v2h-2zM26 9h3v2h-3zM4 13h2v2H4zM0 14h2v2H0zM8 13h2v2H8zM12 13h3v3h-3zM17 13h2v2h-2zM21 14h3v2h-3zM26 13h2v3h-2zM2 18h2v2H2zM6 17h2v3H6zM10 18h3v2h-3zM15 17h2v2h-2zM19 18h2v2h-2zM24 17h2v2h-2zM27 18h2v2h-2zM9 22h2v3H9zM13 22h2v2h-2zM17 23h2v3h-2zM21 22h2v2h-2zM25 22h2v2h-2zM10 26h3v3h-3zM14 26h2v2h-2zM19 26h3v2h-3zM24 26h3v3h-3z"/></svg>
+          <div class="r2">12. 24 (목) 14:00 회차 · 성인 1</div>
+        </div></div>
+        <div class="tx">
+          <div class="stage"><i>관람 전</i><span class="en">TICKET</span></div>
+          <h3>예매번호가 QR 입장권으로</h3>
+          <p>판매처에서 구매한 예매번호를 등록하면 바로 입장권이 됩니다. 티켓은 계정에 보관되어 어느 기기에서든 유지됩니다.</p>
+        </div>
       </div>
       <div class="feat">
-        <div class="stage"><i>관람 중</i><span class="en">EXPERIENCE</span></div>
-        <h3>전시장이 응답하는 관람</h3>
-        <p>전시장 곳곳의 QR로 해설과 상호작용, 수집까지 — 전시마다 설계된 경험 레이어가 열립니다. 관람이 참여가 됩니다.</p>
+        <div class="vis"><div class="vScan">
+          <img class="art" src="/monet100-web/img/sunrise.jpg" alt="">
+          <div class="fr"><i></i><i></i><i></i><i></i></div>
+          <div class="tip">인상, 해돋이 — 해설 재생 중</div>
+        </div></div>
+        <div class="tx">
+          <div class="stage"><i>관람 중</i><span class="en">EXPERIENCE</span></div>
+          <h3>전시장이 응답하는 관람</h3>
+          <p>전시장 곳곳의 QR로 해설과 상호작용, 수집까지 — 전시마다 설계된 경험 레이어가 열립니다. 관람이 참여가 됩니다.</p>
+        </div>
       </div>
       <div class="feat">
-        <div class="stage"><i>관람 후</i><span class="en">REWARD</span></div>
-        <h3>기록이 쌓이고, 등급이 오릅니다</h3>
-        <p>관람 기록이 계정에 남고 등급이 오릅니다. 등급이 오를수록 다음 전시의 할인과 초대가 먼저 열립니다.</p>
+        <div class="vis"><div class="vLv">
+          <div class="r1"><b>Lv. 2</b><span>다음 등급까지 1회</span></div>
+          <div class="bar"><i></i></div>
+          <div class="cpn">다음 전시 우선 예매 · 관람권 할인</div>
+        </div></div>
+        <div class="tx">
+          <div class="stage"><i>관람 후</i><span class="en">REWARD</span></div>
+          <h3>기록이 쌓이고, 등급이 오릅니다</h3>
+          <p>관람 기록이 계정에 남고 등급이 오릅니다. 등급이 오를수록 다음 전시의 할인과 초대가 먼저 열립니다.</p>
+        </div>
       </div>
     </div>
   </section>
