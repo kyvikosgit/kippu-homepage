@@ -3,16 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KIPPU — 전시·공연·행사의 티켓과 경험</title>
+<title>KIPPU — 전시 티켓과 경험</title>
 <meta name="description" content="하나의 앱에서 전시를 예매하고, 입장하고, 탐험합니다. 지금 전시 중: MONET 100.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='12' y='30' width='76' height='40' rx='6' fill='%23CC4725'/><circle cx='12' cy='50' r='6' fill='%23FFFFFF'/><circle cx='88' cy='50' r='6' fill='%23FFFFFF'/></svg>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
-/* KIPPU 컬처 커머스 — Fever·NOL 문법: 밝은 지면 + rust 브랜드 컬러, 칩·뱃지·전환 중심 */
+/* KIPPU 컬처 커머스 — Fever·NOL 문법: 밝은 지면 + rust 브랜드 컬러
+   라운딩 체계: 버튼 10px / 입력·칩 pill / 카드 18px */
 :root{
   --brand:#CC4725; --brand-deep:#B23A1C; --brand-tint:#FBEFEA;
   --ink:#111111; --body:#454541; --sub:#77776F; --meta:#9C9C96;
-  --line:#ECE9E2; --fill:#F5F3EE; --bg:#FFFFFF;
+  --line:#ECE9E2; --fill:#F5F3EE; --bg:#FFFFFF; --rbtn:10px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -28,12 +29,16 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 .top{display:flex;align-items:center;gap:22px;height:64px}
 .logo{font-size:24px;font-weight:900;letter-spacing:.02em;color:var(--brand);flex:none}
 .search{flex:1;max-width:440px;display:flex;align-items:center;gap:10px;background:var(--fill);
-  border-radius:999px;height:42px;padding:0 18px;color:var(--meta);font-size:13.5px;font-weight:500}
+  border:1.5px solid transparent;border-radius:999px;height:42px;padding:0 18px;color:var(--meta)}
+.search:focus-within{background:#fff;border-color:var(--brand)}
 .search svg{flex:none}
+.search input{flex:1;min-width:0;border:0;outline:0;background:transparent;
+  font:inherit;font-size:13.5px;font-weight:500;color:var(--ink)}
+.search input::placeholder{color:var(--meta)}
 .top nav{margin-left:auto;display:flex;gap:22px;align-items:center;flex:none}
 .top nav a{font-size:13.5px;font-weight:600;color:var(--body)}
 .top nav a:hover{color:var(--ink)}
-.top nav a.app{background:var(--brand);color:#fff;border-radius:999px;padding:10px 18px;font-weight:700}
+.top nav a.app{background:var(--brand);color:#fff;border-radius:var(--rbtn);padding:10px 18px;font-weight:700}
 .top nav a.app:hover{background:var(--brand-deep);color:#fff}
 
 /* hero */
@@ -46,39 +51,40 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 .hero p{margin-top:14px;font-size:clamp(14px,1.7vw,16px);opacity:.92;max-width:48ch}
 .hero .btns{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
 .hero .cta{display:inline-flex;align-items:center;background:#fff;color:var(--brand);
-  border-radius:999px;height:50px;padding:0 26px;font-weight:800;font-size:15px}
+  border-radius:var(--rbtn);height:50px;padding:0 26px;font-weight:800;font-size:15px}
 .hero .cta.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
 .hero .cta:hover{opacity:.92}
 
-/* chips */
-.chips{display:flex;gap:8px;margin:24px 0 6px;flex-wrap:wrap}
-.chip{border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:13px;font-weight:600;color:var(--body);background:#fff}
-.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-
 /* sections */
-.sec{padding:26px 0 8px}
+.sec{padding:34px 0 8px}
 .sec .h{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
 .sec h2{font-size:21px;font-weight:800;letter-spacing:-.01em}
 .sec h2 i{font-style:normal;color:var(--brand)}
-.sec .more{font-size:13px;font-weight:600;color:var(--sub)}
 
-/* now showing — 메인 카드 */
-.main-card{display:grid;grid-template-columns:minmax(280px,.8fr) 1.2fr;border:1px solid var(--line);
+/* now showing — 포스터 주도 카드 */
+.main-card{display:grid;grid-template-columns:1.05fr .95fr;border:1px solid var(--line);
   border-radius:18px;overflow:hidden;background:#fff}
 .main-card .img{aspect-ratio:1800/2548;background:url('/monet100-web/img/keyvisual.jpg') center/cover no-repeat;position:relative}
 .bdg{position:absolute;top:14px;left:14px;display:flex;gap:6px}
 .bdg span{background:var(--brand);color:#fff;font-size:11.5px;font-weight:800;border-radius:6px;padding:5px 10px;letter-spacing:.02em}
 .bdg span.w{background:rgba(255,255,255,.94);color:var(--ink)}
-.main-card .body{padding:clamp(24px,3.5vw,40px);display:flex;flex-direction:column;justify-content:center}
-.main-card .cap{font-size:12.5px;color:var(--sub);font-weight:600}
-.main-card h3{font-size:clamp(22px,2.8vw,30px);font-weight:900;letter-spacing:-.02em;line-height:1.3;margin-top:6px}
-.main-card .meta{margin-top:12px;font-size:13.5px;color:var(--sub);line-height:1.9}
-.main-card .meta b{color:var(--ink);font-weight:700}
-.price{margin-top:14px;font-size:19px;font-weight:900}
-.price small{font-size:12px;color:var(--meta);font-weight:600;margin-left:6px}
-.main-card .go{margin-top:20px;display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;
-  background:var(--brand);color:#fff;height:48px;padding:0 24px;border-radius:10px;font-weight:800;font-size:14.5px}
-.main-card .go:hover{background:var(--brand-deep)}
+.main-card .body{padding:clamp(26px,3.5vw,44px);display:flex;flex-direction:column;justify-content:center}
+.main-card .cap{font-size:13px;color:var(--sub);font-weight:600}
+.main-card h3{font-size:clamp(23px,2.6vw,29px);font-weight:900;letter-spacing:-.02em;line-height:1.32;margin-top:8px}
+.specs{margin-top:22px;border-top:1px solid var(--line)}
+.specs>div{display:grid;grid-template-columns:76px 1fr;gap:16px;align-items:baseline;
+  padding:13px 0;border-bottom:1px solid var(--line)}
+.specs dt{font-size:12.5px;font-weight:700;color:var(--meta);letter-spacing:.02em}
+.specs dd{font-size:14px;color:var(--body);font-weight:500}
+.specs dd b{color:var(--ink);font-weight:800;font-size:16px}
+.specs dd small{color:var(--meta);font-size:12px;font-weight:500;margin-left:4px}
+.ctarow{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0 24px;
+  border-radius:var(--rbtn);font-weight:800;font-size:14.5px}
+.btn.fill{background:var(--brand);color:#fff}
+.btn.fill:hover{background:var(--brand-deep)}
+.btn.line{border:1.5px solid var(--line);color:var(--ink);background:#fff}
+.btn.line:hover{border-color:var(--ink)}
 .coming{margin-top:12px;border:1px dashed var(--line);border-radius:14px;padding:18px 22px;
   display:flex;justify-content:space-between;align-items:center;color:var(--meta);font-size:13.5px;font-weight:600}
 
@@ -97,7 +103,7 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 .appband h2 i{font-style:normal;color:var(--brand)}
 .appband p{margin-top:6px;color:var(--sub);font-size:14px}
 .badges{display:flex;gap:10px}
-.badge{border:1px solid #E8D5CC;border-radius:12px;padding:12px 18px;background:#fff}
+.badge{border:1px solid #E8D5CC;border-radius:var(--rbtn);padding:12px 18px;background:#fff}
 .badge b{display:block;font-size:14px}
 .badge small{color:var(--meta);font-size:11.5px}
 
@@ -112,6 +118,7 @@ footer a:hover{color:var(--ink)}
   .main-card{grid-template-columns:1fr}
   .feats{grid-template-columns:1fr}
   .top nav a:not(.app){display:none}
+  .ctarow .btn{flex:1}
 }
 </style>
 </head>
@@ -119,10 +126,10 @@ footer a:hover{color:var(--ink)}
 
 <header><div class="wrap top">
   <a class="logo" href="/">KIPPU</a>
-  <div class="search">
+  <form class="search" id="sform" role="search">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg>
-    전시·공연·행사 검색
-  </div>
+    <input id="sinput" type="search" placeholder="전시 검색" autocomplete="off">
+  </form>
   <nav>
     <a href="#now">전시</a>
     <a href="#how">이용 방법</a>
@@ -135,33 +142,32 @@ footer a:hover{color:var(--ink)}
   <section class="hero">
     <div class="cap">TICKETS & EXPERIENCES</div>
     <h1>이번 주말, 뭐 볼까?</h1>
-    <p>예매부터 QR 입장, 전시장 속 체험까지 — 전시·공연·행사의 티켓과 경험을 담는 하나의 앱, KIPPU.</p>
+    <p>예매부터 QR 입장, 전시장 속 체험까지 — 전시의 티켓과 경험을 담는 하나의 앱, KIPPU.</p>
     <div class="btns">
       <a class="cta" href="#now">지금 전시 보기</a>
       <a class="cta ghost" href="#app">앱 다운로드</a>
     </div>
   </section>
 
-  <div class="chips">
-    <span class="chip on">전체</span><span class="chip">전시</span><span class="chip">공연</span>
-    <span class="chip">행사</span><span class="chip">체험</span>
-  </div>
-
   <section class="sec" id="now">
-    <div class="h"><h2>지금 전시 중 <i>1</i></h2><a class="more" href="/monet100-web/">자세히 보기</a></div>
+    <div class="h"><h2>지금 전시 중 <i>1</i></h2></div>
     <div class="main-card">
-      <div class="img" role="img" aria-label="MONET 100 키비주얼">
+      <a class="img" role="img" aria-label="MONET 100 키비주얼 — 모네 자화상과 인상, 해돋이" href="/monet100-web/">
         <div class="bdg"><span id="dday">D-62</span><span class="w">단독</span></div>
-      </div>
+      </a>
       <div class="body">
         <div class="cap">모네 서거 100주년 기념 전시회</div>
-        <h3>MONET 100 — 시대를 읽는 감각의 계보</h3>
-        <div class="meta">
-          <b>2026. 12. 3 — 2027. 2. 28</b><br>
-          HOUSE OF SHINSEGAE HERITAGE, 서울 · 매 정시 입장 · 회차당 60분
+        <h3>MONET 100<br>시대를 읽는 감각의 계보</h3>
+        <dl class="specs">
+          <div><dt>기간</dt><dd>2026. 12. 3 (목) — 2027. 2. 28 (일)</dd></div>
+          <div><dt>장소</dt><dd>HOUSE OF SHINSEGAE HERITAGE, 서울</dd></div>
+          <div><dt>운영</dt><dd>매 정시 입장 · 회차당 60분</dd></div>
+          <div><dt>관람권</dt><dd><b>22,000원</b><small>성인</small> · 16,000원<small>청소년</small></dd></div>
+        </dl>
+        <div class="ctarow">
+          <a class="btn fill" href="/monet100-web/">전시 자세히 보기</a>
+          <a class="btn line" href="/monet100-web/#tickets">예매 안내</a>
         </div>
-        <div class="price">22,000원<small>성인 · 청소년 16,000원</small></div>
-        <a class="go" href="/monet100-web/">전시 자세히 보기</a>
       </div>
     </div>
     <div class="coming"><span>다음 전시를 준비하고 있습니다</span><span>2027 공개</span></div>
@@ -211,6 +217,15 @@ footer a:hover{color:var(--ink)}
 <script>
 const n = Math.ceil((new Date('2026-12-03') - Date.now()) / 86400000);
 document.getElementById('dday').textContent = n <= 0 ? 'NOW OPEN' : 'D-' + n;
+
+// 검색 — 현재 전시 대상
+document.getElementById('sform').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const q = document.getElementById('sinput').value.trim().toLowerCase();
+  if (!q) return;
+  if (/모네|monet|100|인상|해돋이|신세계|헤리티지/.test(q)) location.href = '/monet100-web/';
+  else location.hash = '#now';
+});
 </script>
 </body>
 </html>
