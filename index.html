@@ -7,6 +7,7 @@
 <meta name="description" content="전시를 보는 것에서, 겪는 것으로. 예매·입장·해설·수집·보상까지, 관람 전체를 하나의 경험으로 설계하는 앱.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='12' y='30' width='76' height='40' rx='6' fill='%23CC4725'/><circle cx='12' cy='50' r='6' fill='%23FFFFFF'/><circle cx='88' cy='50' r='6' fill='%23FFFFFF'/></svg>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 /* KIPPU 컬처 커머스 — 밝은 지면 + rust 브랜드 컬러
    라운딩 체계: 버튼 10px / 입력·칩 pill / 카드 16~18px */
@@ -86,20 +87,53 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 .ex .meta{font-size:12.5px;color:var(--meta);margin-top:6px;line-height:1.7}
 .ex .price{margin-top:10px;font-size:14.5px;font-weight:900}
 .ex .price small{font-size:11.5px;color:var(--meta);font-weight:600;margin-left:5px}
-/* 가상 포스터 — 타이포그래픽 */
-.poster .tp{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
-.poster.lumen{background:linear-gradient(160deg,#0E1B3A 10%,#2E4A8F 70%,#7EA0E8 130%)}
-.poster.lumen::before{content:"";position:absolute;left:-40%;top:-55%;width:180%;height:120%;
-  border-radius:50%;border:1.5px solid rgba(255,255,255,.28)}
-.poster.lumen::after{content:"";position:absolute;left:-25%;top:-40%;width:150%;height:95%;
-  border-radius:50%;border:1px solid rgba(255,255,255,.18)}
-.poster.lumen .t1{color:#EAF0FF;font-size:34px;font-weight:900;letter-spacing:.06em;line-height:1.1}
-.poster.lumen .t2{color:rgba(234,240,255,.75);font-size:12px;font-weight:600;letter-spacing:.3em;margin-top:8px}
-.poster.joseon{background:linear-gradient(165deg,#120B10 20%,#3B1622 80%,#6E2B35 130%)}
-.poster.joseon::before{content:"";position:absolute;right:20px;top:26px;width:74px;height:74px;
-  border-radius:50%;background:radial-gradient(circle at 36% 34%,#F4E3BC,#D9B873 68%,rgba(217,184,115,0) 72%)}
-.poster.joseon .t1{color:#EFDFC2;font-size:30px;font-weight:800;letter-spacing:.14em;line-height:1.25}
-.poster.joseon .t2{color:rgba(239,223,194,.65);font-size:11.5px;font-weight:600;letter-spacing:.3em;margin-top:8px}
+/* 가상 포스터 — 포스터 아트 */
+.poster .tp{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:24px 22px}
+.poster .t3{font-size:10px;font-weight:700;letter-spacing:.3em;margin-top:12px;opacity:.55}
+/* LUMEN — 빛의 건축: 암전된 홀에 빛기둥과 원근 그리드 */
+.poster.lumen{background:
+  radial-gradient(120% 55% at 50% 112%, rgba(126,160,232,.5), transparent 62%),
+  linear-gradient(180deg,#04050C 0%,#0A1334 55%,#223E86 100%)}
+.poster.lumen .beam{position:absolute;inset:0;
+  background:
+    conic-gradient(from 177deg at 50% -6%, transparent 0deg, rgba(255,255,255,.16) 5deg, transparent 10deg),
+    conic-gradient(from 160deg at 24% -6%, transparent 0deg, rgba(255,255,255,.09) 6deg, transparent 12deg),
+    conic-gradient(from 196deg at 78% -6%, transparent 0deg, rgba(255,255,255,.09) 6deg, transparent 12deg)}
+.poster.lumen .floor{position:absolute;left:-25%;right:-25%;bottom:-2px;height:38%;opacity:.45;
+  background:
+    repeating-linear-gradient(90deg, rgba(190,210,255,.5) 0 1px, transparent 1px 36px),
+    repeating-linear-gradient(0deg, rgba(190,210,255,.4) 0 1px, transparent 1px 22px);
+  transform:perspective(260px) rotateX(55deg);transform-origin:50% 100%;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 55%);
+  mask-image:linear-gradient(180deg,transparent,#000 55%)}
+.poster.lumen .pcode{position:absolute;top:16px;right:16px;z-index:2;writing-mode:vertical-rl;
+  font-size:9px;font-weight:700;letter-spacing:.32em;color:rgba(234,240,255,.5)}
+.poster.lumen .t1{color:#F2F6FF;font-size:35px;font-weight:900;letter-spacing:.16em;line-height:1.05;
+  text-shadow:0 0 26px rgba(150,180,255,.55)}
+.poster.lumen .t2{color:rgba(234,240,255,.8);font-size:12px;font-weight:600;letter-spacing:.44em;margin-top:9px}
+.poster.lumen .t3{color:#C9D8FF}
+/* 조선의 밤 — 창살·달빛·기와 실루엣·낙관 */
+.poster.joseon{background:
+  radial-gradient(95% 50% at 50% 118%, rgba(110,43,53,.75), transparent 72%),
+  linear-gradient(180deg,#0A070C 0%,#1B0E17 55%,#30121E 100%)}
+.poster.joseon .lattice{position:absolute;inset:0;opacity:.55;
+  background:
+    repeating-linear-gradient(90deg, rgba(239,223,194,.07) 0 1px, transparent 1px 30px),
+    repeating-linear-gradient(0deg, rgba(239,223,194,.07) 0 1px, transparent 1px 30px);
+  -webkit-mask-image:linear-gradient(180deg,#000 45%,transparent 85%);
+  mask-image:linear-gradient(180deg,#000 45%,transparent 85%)}
+.poster.joseon .moon{position:absolute;right:26px;top:30px;width:78px;height:78px;border-radius:50%;
+  background:radial-gradient(circle at 35% 32%, #FFF7E2, #F0DAA6 48%, #C9A96B 86%);
+  box-shadow:0 0 34px 8px rgba(240,218,166,.32), 0 0 110px 36px rgba(240,218,166,.1)}
+.poster.joseon .roof{position:absolute;left:0;right:0;bottom:0;z-index:1;width:100%;height:auto;display:block}
+.poster.joseon .t1{font-family:'Noto Serif KR',serif;color:#EFDFC2;font-size:33px;font-weight:700;
+  letter-spacing:.2em;line-height:1.2;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.poster.joseon .t2{font-family:'Noto Serif KR',serif;color:rgba(239,223,194,.7);font-size:11.5px;
+  font-weight:600;letter-spacing:.34em;margin-top:9px}
+.poster.joseon .t3{color:#D9B873}
+.poster.joseon .seal{position:absolute;right:22px;bottom:24px;z-index:2;width:20px;height:20px;
+  background:#9A3D22;border-radius:3px;display:flex;align-items:center;justify-content:center;
+  color:#EFDFC2;font-family:'Noto Serif KR',serif;font-size:10px;font-weight:700}
 
 /* 전시장 동선 */
 .walk{border:1px solid var(--line);border-radius:18px;background:#fff;padding:clamp(28px,4vw,46px)}
@@ -191,8 +225,10 @@ footer a:hover{color:var(--ink)}
       </a>
       <div class="ex">
         <div class="poster lumen">
+          <i class="beam"></i><i class="floor"></i>
+          <div class="pcode">LIGHT &amp; SPACE — SP.01</div>
           <div class="bdg"><span class="g">COMING SOON</span></div>
-          <div class="tp"><div class="t1">LUMEN</div><div class="t2">빛의 건축</div></div>
+          <div class="tp"><div class="t1">LUMEN</div><div class="t2">빛의 건축</div><div class="t3">2027 — SEOUL</div></div>
         </div>
         <div class="info">
           <div class="cap">공간·미디어 기획전</div>
@@ -203,8 +239,14 @@ footer a:hover{color:var(--ink)}
       </div>
       <div class="ex">
         <div class="poster joseon">
+          <i class="lattice"></i><span class="moon"></span>
+          <svg class="roof" viewBox="0 0 338 96" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,96 L0,58 C26,54 44,34 58,26 C63,23 64,29 61,33 C92,20 246,20 277,33 C274,29 275,23 280,26 C294,34 312,54 338,58 L338,96 Z" fill="#07050A"/>
+            <path d="M38,62 C120,46 218,46 300,62 L300,70 C218,55 120,55 38,70 Z" fill="rgba(239,223,194,.1)"/>
+          </svg>
           <div class="bdg"><span class="g">COMING SOON</span></div>
-          <div class="tp"><div class="t1">조선의 밤</div><div class="t2">야간 열람실</div></div>
+          <div class="tp"><div class="t1">조선의 밤</div><div class="t2">야간 열람실 · 夜間閱覽室</div><div class="t3">2027 — SEOUL</div></div>
+          <span class="seal">夜</span>
         </div>
         <div class="info">
           <div class="cap">고미술 야간 기획전</div>
