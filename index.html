@@ -65,75 +65,34 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 .sec h2 i{font-style:normal;color:var(--brand)}
 .sec .sub{margin:-12px 0 16px;font-size:13.5px;color:var(--sub)}
 
-/* 전시 캐러셀 — 스와이프 */
-.arrows{display:flex;gap:8px}
-.arr{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;
-  display:flex;align-items:center;justify-content:center;color:var(--body)}
-.arr:hover{border-color:var(--ink);color:var(--ink)}
-.car{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;
-  scrollbar-width:none;margin:0 -24px;padding:2px 24px 8px}
-.car::-webkit-scrollbar{display:none}
-.ex{flex:0 0 min(76vw,338px);scroll-snap-align:start;border:1px solid var(--line);
-  border-radius:16px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
-.ex .poster{aspect-ratio:3/4;position:relative;overflow:hidden}
-.ex .poster.monet{background:url('/monet100-web/img/keyvisual.jpg') center/cover no-repeat}
-.bdg{position:absolute;top:12px;left:12px;display:flex;gap:6px;z-index:2}
-.bdg span{background:var(--brand);color:#fff;font-size:11px;font-weight:800;border-radius:6px;padding:5px 9px;letter-spacing:.02em}
+/* 지금 전시 중 — 키비주얼 피처 (모네 월드 그대로) */
+.feature{display:grid;grid-template-columns:minmax(0,1fr) clamp(320px,40%,480px);
+  background:#121B1A;color:#ECE3D2;border-radius:20px;overflow:hidden}
+.fcopy{padding:clamp(30px,4.2vw,54px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.overline{font-size:11px;letter-spacing:.42em;color:rgba(236,227,210,.7);font-weight:600}
+.fserif{font-family:'Noto Serif KR',serif;font-weight:400;font-size:clamp(16px,1.8vw,20px);
+  line-height:1.85;letter-spacing:.12em;margin-top:26px;color:#ECE3D2}
+.flockup{width:min(100%,360px);height:auto;margin-top:22px;
+  filter:drop-shadow(0 2px 20px rgba(0,0,0,.35))}
+.fmeta{margin-top:26px;padding-top:20px;border-top:1px solid rgba(236,227,210,.16);
+  display:flex;flex-direction:column;gap:5px;font-size:13px;color:#93A19C;line-height:1.7}
+.fmeta b{color:#ECE3D2;font-weight:600;font-size:15.5px;letter-spacing:.03em}
+.fbtns{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0 24px;
+  border-radius:var(--rbtn);font-weight:800;font-size:14.5px}
+.btn.fill{background:#C14B2A;color:#F7EFE2}
+.btn.fill:hover{opacity:.92}
+.btn.ghostc{border:1.5px solid rgba(236,227,210,.4);color:#ECE3D2}
+.btn.ghostc:hover{border-color:#ECE3D2}
+.fvis{position:relative;min-height:440px;
+  background:url('/monet100-web/img/keyvisual.jpg') center 18%/cover no-repeat}
+.fvis::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,#121B1A 0%,rgba(18,27,26,0) 34%)}
+.bdg{position:absolute;top:16px;right:16px;display:flex;gap:6px;z-index:2}
+.bdg span{background:#C14B2A;color:#F7EFE2;font-size:11.5px;font-weight:800;border-radius:6px;padding:5px 10px;letter-spacing:.02em}
 .bdg span.w{background:rgba(255,255,255,.94);color:var(--ink)}
-.bdg span.g{background:rgba(17,17,17,.78);color:#fff}
-.ex .info{padding:15px 18px 18px;border-top:1px solid var(--line)}
-.ex .cap{font-size:11.5px;color:var(--sub);font-weight:600}
-.ex h3{font-size:16.5px;font-weight:800;letter-spacing:-.01em;margin-top:4px;line-height:1.35}
-.ex .meta{font-size:12.5px;color:var(--meta);margin-top:6px;line-height:1.7}
-.ex .price{margin-top:10px;font-size:14.5px;font-weight:900}
-.ex .price small{font-size:11.5px;color:var(--meta);font-weight:600;margin-left:5px}
-/* 가상 포스터 — 포스터 아트 */
-.poster .tp{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:24px 22px}
-.poster .t3{font-size:10px;font-weight:700;letter-spacing:.3em;margin-top:12px;opacity:.55}
-/* LUMEN — 빛의 건축: 암전된 홀에 빛기둥과 원근 그리드 */
-.poster.lumen{background:
-  radial-gradient(120% 55% at 50% 112%, rgba(126,160,232,.5), transparent 62%),
-  linear-gradient(180deg,#04050C 0%,#0A1334 55%,#223E86 100%)}
-.poster.lumen .beam{position:absolute;inset:0;
-  background:
-    conic-gradient(from 177deg at 50% -6%, transparent 0deg, rgba(255,255,255,.16) 5deg, transparent 10deg),
-    conic-gradient(from 160deg at 24% -6%, transparent 0deg, rgba(255,255,255,.09) 6deg, transparent 12deg),
-    conic-gradient(from 196deg at 78% -6%, transparent 0deg, rgba(255,255,255,.09) 6deg, transparent 12deg)}
-.poster.lumen .floor{position:absolute;left:-25%;right:-25%;bottom:-2px;height:38%;opacity:.45;
-  background:
-    repeating-linear-gradient(90deg, rgba(190,210,255,.5) 0 1px, transparent 1px 36px),
-    repeating-linear-gradient(0deg, rgba(190,210,255,.4) 0 1px, transparent 1px 22px);
-  transform:perspective(260px) rotateX(55deg);transform-origin:50% 100%;
-  -webkit-mask-image:linear-gradient(180deg,transparent,#000 55%);
-  mask-image:linear-gradient(180deg,transparent,#000 55%)}
-.poster.lumen .pcode{position:absolute;top:16px;right:16px;z-index:2;writing-mode:vertical-rl;
-  font-size:9px;font-weight:700;letter-spacing:.32em;color:rgba(234,240,255,.5)}
-.poster.lumen .t1{color:#F2F6FF;font-size:35px;font-weight:900;letter-spacing:.16em;line-height:1.05;
-  text-shadow:0 0 26px rgba(150,180,255,.55)}
-.poster.lumen .t2{color:rgba(234,240,255,.8);font-size:12px;font-weight:600;letter-spacing:.44em;margin-top:9px}
-.poster.lumen .t3{color:#C9D8FF}
-/* 조선의 밤 — 창살·달빛·기와 실루엣·낙관 */
-.poster.joseon{background:
-  radial-gradient(95% 50% at 50% 118%, rgba(110,43,53,.75), transparent 72%),
-  linear-gradient(180deg,#0A070C 0%,#1B0E17 55%,#30121E 100%)}
-.poster.joseon .lattice{position:absolute;inset:0;opacity:.55;
-  background:
-    repeating-linear-gradient(90deg, rgba(239,223,194,.07) 0 1px, transparent 1px 30px),
-    repeating-linear-gradient(0deg, rgba(239,223,194,.07) 0 1px, transparent 1px 30px);
-  -webkit-mask-image:linear-gradient(180deg,#000 45%,transparent 85%);
-  mask-image:linear-gradient(180deg,#000 45%,transparent 85%)}
-.poster.joseon .moon{position:absolute;right:26px;top:30px;width:78px;height:78px;border-radius:50%;
-  background:radial-gradient(circle at 35% 32%, #FFF7E2, #F0DAA6 48%, #C9A96B 86%);
-  box-shadow:0 0 34px 8px rgba(240,218,166,.32), 0 0 110px 36px rgba(240,218,166,.1)}
-.poster.joseon .roof{position:absolute;left:0;right:0;bottom:0;z-index:1;width:100%;height:auto;display:block}
-.poster.joseon .t1{font-family:'Noto Serif KR',serif;color:#EFDFC2;font-size:33px;font-weight:700;
-  letter-spacing:.2em;line-height:1.2;text-shadow:0 2px 18px rgba(0,0,0,.6)}
-.poster.joseon .t2{font-family:'Noto Serif KR',serif;color:rgba(239,223,194,.7);font-size:11.5px;
-  font-weight:600;letter-spacing:.34em;margin-top:9px}
-.poster.joseon .t3{color:#D9B873}
-.poster.joseon .seal{position:absolute;right:22px;bottom:24px;z-index:2;width:20px;height:20px;
-  background:#9A3D22;border-radius:3px;display:flex;align-items:center;justify-content:center;
-  color:#EFDFC2;font-family:'Noto Serif KR',serif;font-size:10px;font-weight:700}
+.coming{margin-top:12px;border:1px dashed var(--line);border-radius:14px;padding:16px 22px;
+  display:flex;justify-content:space-between;align-items:center;color:var(--meta);font-size:13.5px;font-weight:600}
 
 /* 전시장 동선 */
 .walk{border:1px solid var(--line);border-radius:18px;background:#fff;padding:clamp(28px,4vw,46px)}
@@ -166,7 +125,9 @@ footer a:hover{color:var(--ink)}
 @media (max-width:860px){
   .search{display:none}
   .top nav a:not(.app){display:none}
-  .arrows{display:none}
+  .feature{grid-template-columns:1fr}
+  .fvis{order:-1;min-height:0;aspect-ratio:1800/2548}
+  .fvis::before{background:linear-gradient(180deg,rgba(18,27,26,0) 60%,#121B1A 100%)}
   .wgrid{grid-template-columns:1fr;gap:22px}
   .wgrid::before{display:none}
 }
@@ -200,62 +161,27 @@ footer a:hover{color:var(--ink)}
   </section>
 
   <section class="sec" id="now">
-    <div class="h">
-      <h2>지금 그리고 다음 전시</h2>
-      <div class="arrows">
-        <button class="arr" id="prev" aria-label="이전">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
-        </button>
-        <button class="arr" id="next" aria-label="다음">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
-        </button>
+    <div class="h"><h2>지금 전시 중</h2></div>
+    <div class="feature">
+      <div class="fcopy">
+        <div class="overline">HOUSE OF SHINSEGAE · HERITAGE</div>
+        <p class="fserif">모네에서 샤넬로,<br>그리고 지금</p>
+        <img class="flockup" src="/monet100-web/img/logo_lockup.png" alt="MONET 100 — 시대를 읽는 감각의 계보">
+        <div class="fmeta">
+          <b>2026. 12. 3 — 2027. 2. 28</b>
+          <span>HOUSE OF SHINSEGAE HERITAGE, 서울 · 매 정시 입장 · 회차당 60분</span>
+          <span>성인 22,000원 · 청소년 16,000원</span>
+        </div>
+        <div class="fbtns">
+          <a class="btn fill" href="/monet100-web/">전시 자세히 보기</a>
+          <a class="btn ghostc" href="/monet100-web/#tickets">예매 안내</a>
+        </div>
+      </div>
+      <div class="fvis" role="img" aria-label="MONET 100 키비주얼 — 모네 자화상과 인상, 해돋이">
+        <div class="bdg"><span id="dday">D-58</span><span class="w">단독</span></div>
       </div>
     </div>
-    <div class="car" id="car">
-      <a class="ex" href="/monet100-web/">
-        <div class="poster monet">
-          <div class="bdg"><span id="dday">D-58</span><span class="w">단독</span></div>
-        </div>
-        <div class="info">
-          <div class="cap">모네 서거 100주년 기념 전시회</div>
-          <h3>MONET 100 — 시대를 읽는 감각의 계보</h3>
-          <div class="meta">HOUSE OF SHINSEGAE HERITAGE, 서울<br>2026. 12. 3 — 2027. 2. 28</div>
-          <div class="price">22,000원<small>성인 · 청소년 16,000원</small></div>
-        </div>
-      </a>
-      <div class="ex">
-        <div class="poster lumen">
-          <i class="beam"></i><i class="floor"></i>
-          <div class="pcode">LIGHT &amp; SPACE — SP.01</div>
-          <div class="bdg"><span class="g">COMING SOON</span></div>
-          <div class="tp"><div class="t1">LUMEN</div><div class="t2">빛의 건축</div><div class="t3">2027 — SEOUL</div></div>
-        </div>
-        <div class="info">
-          <div class="cap">공간·미디어 기획전</div>
-          <h3>LUMEN — 빛의 건축</h3>
-          <div class="meta">서울 · 장소 추후 공개<br>2027 상반기</div>
-          <div class="price" style="color:var(--meta)">오픈 알림 예정</div>
-        </div>
-      </div>
-      <div class="ex">
-        <div class="poster joseon">
-          <i class="lattice"></i><span class="moon"></span>
-          <svg class="roof" viewBox="0 0 338 96" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0,96 L0,58 C26,54 44,34 58,26 C63,23 64,29 61,33 C92,20 246,20 277,33 C274,29 275,23 280,26 C294,34 312,54 338,58 L338,96 Z" fill="#07050A"/>
-            <path d="M38,62 C120,46 218,46 300,62 L300,70 C218,55 120,55 38,70 Z" fill="rgba(239,223,194,.1)"/>
-          </svg>
-          <div class="bdg"><span class="g">COMING SOON</span></div>
-          <div class="tp"><div class="t1">조선의 밤</div><div class="t2">야간 열람실 · 夜間閱覽室</div><div class="t3">2027 — SEOUL</div></div>
-          <span class="seal">夜</span>
-        </div>
-        <div class="info">
-          <div class="cap">고미술 야간 기획전</div>
-          <h3>조선의 밤 — 야간 열람실</h3>
-          <div class="meta">서울 · 장소 추후 공개<br>2027 하반기</div>
-          <div class="price" style="color:var(--meta)">오픈 알림 예정</div>
-        </div>
-      </div>
-    </div>
+    <div class="coming"><span>다음 전시를 준비하고 있습니다</span><span>2027 공개</span></div>
   </section>
 
   <section class="sec" id="walk">
@@ -319,12 +245,6 @@ footer a:hover{color:var(--ink)}
 <script>
 const n = Math.ceil((new Date('2026-12-03') - Date.now()) / 86400000);
 document.getElementById('dday').textContent = n <= 0 ? 'NOW OPEN' : 'D-' + n;
-
-// 캐러셀 화살표
-const car = document.getElementById('car');
-const step = () => (car.querySelector('.ex').getBoundingClientRect().width + 14);
-document.getElementById('prev').onclick = () => car.scrollBy({ left: -step(), behavior: 'smooth' });
-document.getElementById('next').onclick = () => car.scrollBy({ left: step(), behavior: 'smooth' });
 
 // 검색 — 현재 전시 대상
 document.getElementById('sform').addEventListener('submit', (e) => {
