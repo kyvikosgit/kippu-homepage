@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KIPPU — 전시 티켓과 경험</title>
-<meta name="description" content="하나의 앱에서 전시를 예매하고, 입장하고, 탐험합니다. 지금 전시 중: MONET 100.">
+<meta name="description" content="전시를 보는 것에서, 겪는 것으로. 예매·입장·해설·수집·보상까지, 관람 전체를 하나의 경험으로 설계하는 앱.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='12' y='30' width='76' height='40' rx='6' fill='%23CC4725'/><circle cx='12' cy='50' r='6' fill='%23FFFFFF'/><circle cx='88' cy='50' r='6' fill='%23FFFFFF'/></svg>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
-/* KIPPU 컬처 커머스 — Fever·NOL 문법: 밝은 지면 + rust 브랜드 컬러
-   라운딩 체계: 버튼 10px / 입력·칩 pill / 카드 18px */
+/* KIPPU 컬처 커머스 — 밝은 지면 + rust 브랜드 컬러
+   라운딩 체계: 버튼 10px / 입력·칩 pill / 카드 16~18px */
 :root{
   --brand:#CC4725; --brand-deep:#B23A1C; --brand-tint:#FBEFEA;
   --ink:#111111; --body:#454541; --sub:#77776F; --meta:#9C9C96;
@@ -21,6 +21,8 @@ body{background:var(--bg);color:var(--ink);font-family:Pretendard,-apple-system,
   line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
+ul{list-style:none}
+button{font:inherit;border:0;background:none;cursor:pointer}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 
 /* top bar */
@@ -56,62 +58,74 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 .hero .cta:hover{opacity:.92}
 
 /* sections */
-.sec{padding:34px 0 8px}
-.sec .h{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+.sec{padding:36px 0 8px}
+.sec .h{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
 .sec h2{font-size:21px;font-weight:800;letter-spacing:-.01em}
 .sec h2 i{font-style:normal;color:var(--brand)}
+.sec .sub{margin:-12px 0 16px;font-size:13.5px;color:var(--sub)}
 
-/* now showing — 포스터 주도 카드 */
-.main-card{display:grid;grid-template-columns:1.05fr .95fr;border:1px solid var(--line);
-  border-radius:18px;overflow:hidden;background:#fff}
-.main-card .img{aspect-ratio:1800/2548;background:url('/monet100-web/img/keyvisual.jpg') center/cover no-repeat;position:relative}
-.bdg{position:absolute;top:14px;left:14px;display:flex;gap:6px}
-.bdg span{background:var(--brand);color:#fff;font-size:11.5px;font-weight:800;border-radius:6px;padding:5px 10px;letter-spacing:.02em}
+/* 전시 캐러셀 — 스와이프 */
+.arrows{display:flex;gap:8px}
+.arr{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;
+  display:flex;align-items:center;justify-content:center;color:var(--body)}
+.arr:hover{border-color:var(--ink);color:var(--ink)}
+.car{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:none;margin:0 -24px;padding:2px 24px 8px}
+.car::-webkit-scrollbar{display:none}
+.ex{flex:0 0 min(76vw,338px);scroll-snap-align:start;border:1px solid var(--line);
+  border-radius:16px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.ex .poster{aspect-ratio:3/4;position:relative;overflow:hidden}
+.ex .poster.monet{background:url('/monet100-web/img/keyvisual.jpg') center/cover no-repeat}
+.bdg{position:absolute;top:12px;left:12px;display:flex;gap:6px;z-index:2}
+.bdg span{background:var(--brand);color:#fff;font-size:11px;font-weight:800;border-radius:6px;padding:5px 9px;letter-spacing:.02em}
 .bdg span.w{background:rgba(255,255,255,.94);color:var(--ink)}
-.main-card .body{padding:clamp(26px,3.5vw,44px);display:flex;flex-direction:column;justify-content:center}
-.main-card .cap{font-size:13px;color:var(--sub);font-weight:600}
-.main-card h3{font-size:clamp(23px,2.6vw,29px);font-weight:900;letter-spacing:-.02em;line-height:1.32;margin-top:8px}
-.specs{margin-top:22px;border-top:1px solid var(--line)}
-.specs>div{display:grid;grid-template-columns:76px 1fr;gap:16px;align-items:baseline;
-  padding:13px 0;border-bottom:1px solid var(--line)}
-.specs dt{font-size:12.5px;font-weight:700;color:var(--meta);letter-spacing:.02em}
-.specs dd{font-size:14px;color:var(--body);font-weight:500}
-.specs dd b{color:var(--ink);font-weight:800;font-size:16px}
-.specs dd small{color:var(--meta);font-size:12px;font-weight:500;margin-left:4px}
-.ctarow{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0 24px;
-  border-radius:var(--rbtn);font-weight:800;font-size:14.5px}
-.btn.fill{background:var(--brand);color:#fff}
-.btn.fill:hover{background:var(--brand-deep)}
-.btn.line{border:1.5px solid var(--line);color:var(--ink);background:#fff}
-.btn.line:hover{border-color:var(--ink)}
-.coming{margin-top:12px;border:1px dashed var(--line);border-radius:14px;padding:18px 22px;
-  display:flex;justify-content:space-between;align-items:center;color:var(--meta);font-size:13.5px;font-weight:600}
+.bdg span.g{background:rgba(17,17,17,.78);color:#fff}
+.ex .info{padding:15px 18px 18px;border-top:1px solid var(--line)}
+.ex .cap{font-size:11.5px;color:var(--sub);font-weight:600}
+.ex h3{font-size:16.5px;font-weight:800;letter-spacing:-.01em;margin-top:4px;line-height:1.35}
+.ex .meta{font-size:12.5px;color:var(--meta);margin-top:6px;line-height:1.7}
+.ex .price{margin-top:10px;font-size:14.5px;font-weight:900}
+.ex .price small{font-size:11.5px;color:var(--meta);font-weight:600;margin-left:5px}
+/* 가상 포스터 — 타이포그래픽 */
+.poster .tp{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+.poster.lumen{background:linear-gradient(160deg,#0E1B3A 10%,#2E4A8F 70%,#7EA0E8 130%)}
+.poster.lumen::before{content:"";position:absolute;left:-40%;top:-55%;width:180%;height:120%;
+  border-radius:50%;border:1.5px solid rgba(255,255,255,.28)}
+.poster.lumen::after{content:"";position:absolute;left:-25%;top:-40%;width:150%;height:95%;
+  border-radius:50%;border:1px solid rgba(255,255,255,.18)}
+.poster.lumen .t1{color:#EAF0FF;font-size:34px;font-weight:900;letter-spacing:.06em;line-height:1.1}
+.poster.lumen .t2{color:rgba(234,240,255,.75);font-size:12px;font-weight:600;letter-spacing:.3em;margin-top:8px}
+.poster.joseon{background:linear-gradient(165deg,#120B10 20%,#3B1622 80%,#6E2B35 130%)}
+.poster.joseon::before{content:"";position:absolute;right:20px;top:26px;width:74px;height:74px;
+  border-radius:50%;background:radial-gradient(circle at 36% 34%,#F4E3BC,#D9B873 68%,rgba(217,184,115,0) 72%)}
+.poster.joseon .t1{color:#EFDFC2;font-size:30px;font-weight:800;letter-spacing:.14em;line-height:1.25}
+.poster.joseon .t2{color:rgba(239,223,194,.65);font-size:11.5px;font-weight:600;letter-spacing:.3em;margin-top:8px}
 
-/* how */
-.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.feat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 16px 24px;display:flex;flex-direction:column}
-.feat .vis{height:190px;border-radius:12px;background:var(--fill);position:relative;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-.feat .tx{padding:0 10px}
-.feat .stage{display:flex;align-items:center;justify-content:space-between}
-.feat .stage i{font-style:normal;background:var(--brand-tint);color:var(--brand);
-  border-radius:7px;padding:5px 10px;font-size:12.5px;font-weight:800}
-.feat .en{font-size:10.5px;letter-spacing:.2em;color:var(--meta);font-weight:700}
-.feat h3{font-size:17px;font-weight:800;margin:14px 0 7px;letter-spacing:-.01em}
-.feat p{font-size:13.5px;color:var(--sub);line-height:1.75}
-/* 비네트 1 — 앱 티켓 */
-.vTicket{width:208px;background:#fff;border-radius:14px;padding:14px 16px 15px;
+/* 피처 로우 — KIPPU가 바꾸는 관람 */
+.rows{display:flex;flex-direction:column;gap:14px}
+.frow{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);
+  border-radius:18px;overflow:hidden;background:#fff}
+.fvis{background:var(--fill);min-height:300px;display:flex;align-items:center;justify-content:center;padding:34px}
+.frow.rev .fvis{order:2}
+.ftx{padding:clamp(28px,3.8vw,48px);display:flex;flex-direction:column;justify-content:center}
+.fno{font-size:12px;font-weight:900;color:var(--brand);letter-spacing:.16em}
+.ftx h3{font-size:clamp(20px,2.3vw,25px);font-weight:900;margin-top:10px;letter-spacing:-.015em}
+.ftx>p{margin-top:12px;font-size:14.5px;color:var(--sub);line-height:1.8;max-width:46ch}
+.ftx ul{margin-top:16px;display:flex;flex-direction:column;gap:7px}
+.ftx li{font-size:13.5px;color:var(--body);font-weight:600;display:flex;gap:9px;align-items:center}
+.ftx li::before{content:"";flex:none;width:5px;height:5px;border-radius:50%;background:var(--brand)}
+
+/* 비네트 */
+.vTicket{width:212px;background:#fff;border-radius:14px;padding:14px 16px 15px;
   box-shadow:0 10px 28px rgba(17,17,17,.1);transform:rotate(-3deg)}
 .vTicket .r1{display:flex;align-items:center;justify-content:space-between}
 .vTicket .r1 b{font-size:13px;font-weight:900;letter-spacing:.01em}
 .vTicket .dot{width:7px;height:7px;border-radius:50%;background:var(--brand)}
 .vTicket svg{display:block;margin:12px auto 10px}
 .vTicket .r2{text-align:center;font-size:10.5px;color:var(--sub);font-weight:600}
-/* 비네트 2 — 작품 스캔 */
-.vScan{position:relative;width:196px}
-.vScan .art{width:100%;height:116px;border-radius:10px;object-fit:cover;display:block}
-.vScan .fr{position:absolute;inset:-9px -9px auto;height:134px;pointer-events:none}
+.vScan{position:relative;width:200px}
+.vScan .art{width:100%;height:118px;border-radius:10px;object-fit:cover;display:block}
+.vScan .fr{position:absolute;inset:-9px -9px auto;height:136px;pointer-events:none}
 .vScan .fr i{position:absolute;width:20px;height:20px;border:2.5px solid var(--brand)}
 .vScan .fr i:nth-child(1){left:0;top:0;border-right:0;border-bottom:0;border-radius:6px 0 0 0}
 .vScan .fr i:nth-child(2){right:0;top:0;border-left:0;border-bottom:0;border-radius:0 6px 0 0}
@@ -121,8 +135,12 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
   box-shadow:0 8px 22px rgba(17,17,17,.1);padding:8px 14px;font-size:11.5px;font-weight:700;color:var(--ink);
   display:flex;align-items:center;gap:7px}
 .vScan .tip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand)}
-/* 비네트 3 — 등급 */
-.vLv{width:208px;background:#fff;border-radius:14px;padding:16px;box-shadow:0 10px 28px rgba(17,17,17,.1)}
+.vCol{display:grid;grid-template-columns:repeat(3,64px);gap:9px}
+.vCol i{display:block;width:64px;height:64px;border-radius:10px;background:#fff;
+  border:1.5px dashed #DAD5CA}
+.vCol img{width:64px;height:64px;border-radius:10px;object-fit:cover;
+  box-shadow:0 6px 16px rgba(17,17,17,.12)}
+.vLv{width:212px;background:#fff;border-radius:14px;padding:16px;box-shadow:0 10px 28px rgba(17,17,17,.1)}
 .vLv .r1{display:flex;align-items:baseline;justify-content:space-between}
 .vLv .r1 b{font-size:17px;font-weight:900}
 .vLv .r1 span{font-size:10.5px;color:var(--meta);font-weight:700}
@@ -150,10 +168,11 @@ footer a:hover{color:var(--ink)}
 
 @media (max-width:860px){
   .search{display:none}
-  .main-card{grid-template-columns:1fr}
-  .feats{grid-template-columns:1fr}
   .top nav a:not(.app){display:none}
-  .ctarow .btn{flex:1}
+  .arrows{display:none}
+  .frow{grid-template-columns:1fr}
+  .frow.rev .fvis{order:0}
+  .fvis{min-height:240px}
 }
 </style>
 </head>
@@ -167,7 +186,7 @@ footer a:hover{color:var(--ink)}
   </form>
   <nav>
     <a href="#now">전시</a>
-    <a href="#how">이용 방법</a>
+    <a href="#how">경험</a>
     <a class="app" href="#app">앱 다운로드</a>
   </nav>
 </div></header>
@@ -185,68 +204,133 @@ footer a:hover{color:var(--ink)}
   </section>
 
   <section class="sec" id="now">
-    <div class="h"><h2>지금 전시 중 <i>1</i></h2></div>
-    <div class="main-card">
-      <a class="img" role="img" aria-label="MONET 100 키비주얼 — 모네 자화상과 인상, 해돋이" href="/monet100-web/">
-        <div class="bdg"><span id="dday">D-62</span><span class="w">단독</span></div>
+    <div class="h">
+      <h2>지금 그리고 다음 전시</h2>
+      <div class="arrows">
+        <button class="arr" id="prev" aria-label="이전">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="arr" id="next" aria-label="다음">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="car" id="car">
+      <a class="ex" href="/monet100-web/">
+        <div class="poster monet">
+          <div class="bdg"><span id="dday">D-58</span><span class="w">단독</span></div>
+        </div>
+        <div class="info">
+          <div class="cap">모네 서거 100주년 기념 전시회</div>
+          <h3>MONET 100 — 시대를 읽는 감각의 계보</h3>
+          <div class="meta">HOUSE OF SHINSEGAE HERITAGE, 서울<br>2026. 12. 3 — 2027. 2. 28</div>
+          <div class="price">22,000원<small>성인 · 청소년 16,000원</small></div>
+        </div>
       </a>
-      <div class="body">
-        <div class="cap">모네 서거 100주년 기념 전시회</div>
-        <h3>MONET 100<br>시대를 읽는 감각의 계보</h3>
-        <dl class="specs">
-          <div><dt>기간</dt><dd>2026. 12. 3 (목) — 2027. 2. 28 (일)</dd></div>
-          <div><dt>장소</dt><dd>HOUSE OF SHINSEGAE HERITAGE, 서울</dd></div>
-          <div><dt>운영</dt><dd>매 정시 입장 · 회차당 60분</dd></div>
-          <div><dt>관람권</dt><dd><b>22,000원</b><small>성인</small> · 16,000원<small>청소년</small></dd></div>
-        </dl>
-        <div class="ctarow">
-          <a class="btn fill" href="/monet100-web/">전시 자세히 보기</a>
-          <a class="btn line" href="/monet100-web/#tickets">예매 안내</a>
+      <div class="ex">
+        <div class="poster lumen">
+          <div class="bdg"><span class="g">COMING SOON</span></div>
+          <div class="tp"><div class="t1">LUMEN</div><div class="t2">빛의 건축</div></div>
+        </div>
+        <div class="info">
+          <div class="cap">공간·미디어 기획전</div>
+          <h3>LUMEN — 빛의 건축</h3>
+          <div class="meta">서울 · 장소 추후 공개<br>2027 상반기</div>
+          <div class="price" style="color:var(--meta)">오픈 알림 예정</div>
+        </div>
+      </div>
+      <div class="ex">
+        <div class="poster joseon">
+          <div class="bdg"><span class="g">COMING SOON</span></div>
+          <div class="tp"><div class="t1">조선의 밤</div><div class="t2">야간 열람실</div></div>
+        </div>
+        <div class="info">
+          <div class="cap">고미술 야간 기획전</div>
+          <h3>조선의 밤 — 야간 열람실</h3>
+          <div class="meta">서울 · 장소 추후 공개<br>2027 하반기</div>
+          <div class="price" style="color:var(--meta)">오픈 알림 예정</div>
         </div>
       </div>
     </div>
-    <div class="coming"><span>다음 전시를 준비하고 있습니다</span><span>2027 공개</span></div>
   </section>
 
   <section class="sec" id="how">
-    <div class="h"><h2>관람 전부터, 관람 후까지</h2></div>
-    <div class="feats">
-      <div class="feat">
-        <div class="vis"><div class="vTicket">
+    <div class="h"><h2>하나의 앱이 바꾸는 관람</h2></div>
+    <div class="rows">
+
+      <div class="frow">
+        <div class="fvis"><div class="vTicket">
           <div class="r1"><b>MONET 100</b><span class="dot"></span></div>
           <svg width="68" height="68" viewBox="0 0 29 29" shape-rendering="crispEdges" aria-hidden="true"><rect width="29" height="29" fill="#fff"/><path fill="#111" d="M0 0h7v7H0zM22 0h7v7h-7zM0 22h7v7H0z"/><path fill="#fff" d="M1 1h5v5H1zM23 1h5v5h-5zM1 23h5v5H1z"/><path fill="#111" d="M2 2h3v3H2zM24 2h3v3h-3zM2 24h3v3H2zM9 0h2v2H9zM13 1h2v2h-2zM17 0h2v3h-2zM9 4h3v2H9zM14 4h2v3h-2zM18 4h2v2h-2zM0 9h2v2H0zM3 9h3v2H3zM9 9h2v3H9zM13 9h3v2h-3zM18 9h2v2h-2zM22 9h2v2h-2zM26 9h3v2h-3zM4 13h2v2H4zM0 14h2v2H0zM8 13h2v2H8zM12 13h3v3h-3zM17 13h2v2h-2zM21 14h3v2h-3zM26 13h2v3h-2zM2 18h2v2H2zM6 17h2v3H6zM10 18h3v2h-3zM15 17h2v2h-2zM19 18h2v2h-2zM24 17h2v2h-2zM27 18h2v2h-2zM9 22h2v3H9zM13 22h2v2h-2zM17 23h2v3h-2zM21 22h2v2h-2zM25 22h2v2h-2zM10 26h3v3h-3zM14 26h2v2h-2zM19 26h3v2h-3zM24 26h3v3h-3z"/></svg>
           <div class="r2">12. 24 (목) 14:00 회차 · 성인 1</div>
         </div></div>
-        <div class="tx">
-          <div class="stage"><i>관람 전</i><span class="en">TICKET</span></div>
-          <h3>예매번호가 QR 입장권으로</h3>
-          <p>판매처에서 구매한 예매번호를 등록하면 바로 입장권이 됩니다. 티켓은 계정에 보관되어 어느 기기에서든 유지됩니다.</p>
+        <div class="ftx">
+          <div class="fno">01 — TICKET</div>
+          <h3>줄 서지 않는 입장</h3>
+          <p>어디서 예매했든 예매번호 하나면 끝. 등록하는 순간 QR 입장권이 되고, 게이트에서 바로 통과합니다.</p>
+          <ul>
+            <li>동행자에게 티켓 나눠 보내기</li>
+            <li>오프라인에서도 열리는 QR 입장권</li>
+            <li>관람일·회차 리마인드 알림</li>
+          </ul>
         </div>
       </div>
-      <div class="feat">
-        <div class="vis"><div class="vScan">
+
+      <div class="frow rev">
+        <div class="fvis"><div class="vScan">
           <img class="art" src="/monet100-web/img/sunrise.jpg" alt="">
           <div class="fr"><i></i><i></i><i></i><i></i></div>
           <div class="tip">인상, 해돋이 — 해설 재생 중</div>
         </div></div>
-        <div class="tx">
-          <div class="stage"><i>관람 중</i><span class="en">EXPERIENCE</span></div>
-          <h3>전시장이 응답하는 관람</h3>
-          <p>전시장 곳곳의 QR로 해설과 상호작용, 수집까지 — 전시마다 설계된 경험 레이어가 열립니다. 관람이 참여가 됩니다.</p>
+        <div class="ftx">
+          <div class="fno">02 — EXPERIENCE</div>
+          <h3>작품 앞에서 열리는 해설</h3>
+          <p>작품 옆 QR을 비추면 그 자리에서 해설이 열립니다. 전시마다 설계된 상호작용이 관람을 참여로 바꿉니다.</p>
+          <ul>
+            <li>작품별 오디오 해설과 비하인드</li>
+            <li>전시마다 다른 현장 상호작용</li>
+            <li>동선을 따라 열리는 콘텐츠</li>
+          </ul>
         </div>
       </div>
-      <div class="feat">
-        <div class="vis"><div class="vLv">
+
+      <div class="frow">
+        <div class="fvis"><div class="vCol">
+          <img src="/monet100-web/img/sunrise.jpg" alt="">
+          <img src="/monet100-web/img/portrait.jpg" alt="">
+          <img src="/monet100-web/img/lazare.jpg" alt="">
+          <i></i><i></i><i></i>
+        </div></div>
+        <div class="ftx">
+          <div class="fno">03 — COLLECTION</div>
+          <h3>관람이 수집으로 남습니다</h3>
+          <p>관람 중 만난 작품과 순간이 계정의 컬렉션에 쌓입니다. 전시가 끝나도 당신의 기록은 사라지지 않습니다.</p>
+          <ul>
+            <li>전시별 수집품 보관함</li>
+            <li>작품 도감과 관람 타임라인</li>
+            <li>다음 전시로 이어지는 기록</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="frow rev">
+        <div class="fvis"><div class="vLv">
           <div class="r1"><b>Lv. 2</b><span>다음 등급까지 1회</span></div>
           <div class="bar"><i></i></div>
           <div class="cpn">다음 전시 우선 예매 · 관람권 할인</div>
         </div></div>
-        <div class="tx">
-          <div class="stage"><i>관람 후</i><span class="en">REWARD</span></div>
-          <h3>기록이 쌓이고, 등급이 오릅니다</h3>
-          <p>관람 기록이 계정에 남고 등급이 오릅니다. 등급이 오를수록 다음 전시의 할인과 초대가 먼저 열립니다.</p>
+        <div class="ftx">
+          <div class="fno">04 — REWARD</div>
+          <h3>다닐수록 커지는 혜택</h3>
+          <p>관람 기록이 등급이 됩니다. 등급이 오를수록 우선 예매, 관람권 할인, 프라이빗 오프닝 초대가 먼저 열립니다.</p>
+          <ul>
+            <li>관람 횟수 기반 등급</li>
+            <li>등급별 할인과 우선 예매</li>
+            <li>오프닝·클로징 프라이빗 초대</li>
+          </ul>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -282,6 +366,12 @@ footer a:hover{color:var(--ink)}
 <script>
 const n = Math.ceil((new Date('2026-12-03') - Date.now()) / 86400000);
 document.getElementById('dday').textContent = n <= 0 ? 'NOW OPEN' : 'D-' + n;
+
+// 캐러셀 화살표
+const car = document.getElementById('car');
+const step = () => (car.querySelector('.ex').getBoundingClientRect().width + 14);
+document.getElementById('prev').onclick = () => car.scrollBy({ left: -step(), behavior: 'smooth' });
+document.getElementById('next').onclick = () => car.scrollBy({ left: step(), behavior: 'smooth' });
 
 // 검색 — 현재 전시 대상
 document.getElementById('sform').addEventListener('submit', (e) => {
