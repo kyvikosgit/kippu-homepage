@@ -94,14 +94,14 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 .coming{margin-top:12px;border:1px dashed var(--line);border-radius:14px;padding:16px 22px;
   display:flex;justify-content:space-between;align-items:center;color:var(--meta);font-size:13.5px;font-weight:600}
 
-/* KIPPU가 하는 일 — 도식 */
-.fts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.ft{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 16px 24px}
-.dv{border-radius:12px;background:var(--fill);padding:22px 18px;
+/* KIPPU가 하는 일 — 아이콘(Lucide) */
+.fts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ft{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 22px 28px}
+.gx{width:54px;height:54px;border-radius:14px;background:var(--brand-tint);color:var(--brand);
   display:flex;align-items:center;justify-content:center}
-.dv svg{width:min(100%,300px);height:auto}
-.ft h3{font-size:16.5px;font-weight:900;letter-spacing:-.01em;margin:16px 8px 0}
-.ft>p{margin:5px 8px 0;font-size:13px;color:var(--sub);line-height:1.65}
+.gx svg{width:28px;height:28px}
+.ft h3{font-size:16px;font-weight:900;letter-spacing:-.01em;margin-top:16px}
+.ft>p{margin-top:5px;font-size:13px;color:var(--sub);line-height:1.65}
 
 /* app */
 .appband{background:var(--brand-tint);border-radius:18px;padding:clamp(28px,4vw,44px);
@@ -123,7 +123,7 @@ footer a:hover{color:var(--ink)}
 @media (max-width:860px){
   .search{display:none}
   .top nav a:not(.app){display:none}
-  .fts{grid-template-columns:1fr}
+  .fts{grid-template-columns:1fr 1fr;gap:10px}
   .feature{grid-template-columns:1fr}
   .fvis{order:-1;min-height:0;aspect-ratio:1800/2548}
   .fvis::before{background:linear-gradient(180deg,rgba(18,27,26,0) 60%,#121B1A 100%)}
@@ -185,56 +185,22 @@ footer a:hover{color:var(--ink)}
     <div class="h"><h2>KIPPU가 하는 일</h2></div>
     <div class="fts">
       <div class="ft">
-        <div class="dv"><svg viewBox="0 0 220 110" fill="none" aria-hidden="true">
-          <rect x="14" y="31" width="48" height="48" rx="8" stroke="#111111" stroke-width="3"/>
-          <rect x="23" y="40" width="11" height="11" rx="2" fill="#111111"/>
-          <rect x="42" y="40" width="11" height="11" rx="2" fill="#111111"/>
-          <rect x="23" y="59" width="11" height="11" rx="2" fill="#111111"/>
-          <rect x="44" y="61" width="7" height="7" fill="#CC4725"/>
-          <path d="M74 55h34m0 0l-8-8m8 8l-8 8" stroke="#9C9C96" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <rect x="120" y="44" width="16" height="22" rx="3" fill="#CC4725"/>
-          <rect x="141" y="44" width="16" height="22" rx="3" fill="#CC4725"/>
-          <rect x="162" y="44" width="16" height="22" rx="3" stroke="#111111" stroke-width="2.4" stroke-dasharray="4 3.4"/>
-          <rect x="183" y="44" width="16" height="22" rx="3" stroke="#111111" stroke-width="2.4" stroke-dasharray="4 3.4"/>
-        </svg></div>
+        <div class="gx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1" /> <rect width="5" height="5" x="16" y="3" rx="1" /> <rect width="5" height="5" x="3" y="16" rx="1" /> <path d="M21 16h-3a2 2 0 0 0-2 2v3" /> <path d="M21 21v.01" /> <path d="M12 7v3a2 2 0 0 1-2 2H7" /> <path d="M3 12h.01" /> <path d="M12 3h.01" /> <path d="M12 16v.01" /> <path d="M16 12h1" /> <path d="M21 12v.01" /> <path d="M12 21v-1" /></svg></div>
         <h3>전시 미션</h3>
         <p>존마다 QR로 미션이 열리고, 조각이 모입니다.</p>
       </div>
       <div class="ft">
-        <div class="dv"><svg viewBox="0 0 220 110" fill="none" aria-hidden="true">
-          <rect x="30" y="14" width="22" height="22" rx="4" fill="#CC4725"/>
-          <rect x="60" y="14" width="22" height="22" rx="4" fill="#CC4725"/>
-          <rect x="90" y="14" width="22" height="22" rx="4" stroke="#111111" stroke-width="2.4" stroke-dasharray="4 3.4"/>
-          <path d="M71 44v16m0 0l-7-7m7 7l7-7" stroke="#9C9C96" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M34 70h118l12 14v12H48L34 82z" stroke="#111111" stroke-width="3" stroke-linejoin="round"/>
-          <path d="M34 70l14 12h118" stroke="#111111" stroke-width="3" stroke-linejoin="round"/>
-        </svg></div>
+        <div class="gx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1" /> <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" /> <path d="M10 12h4" /></svg></div>
         <h3>수집품 보관함</h3>
         <p>관람 중 모은 조각이 계정에 남습니다.</p>
       </div>
       <div class="ft">
-        <div class="dv"><svg viewBox="0 0 220 110" fill="none" aria-hidden="true">
-          <rect x="34" y="18" width="40" height="74" rx="8" stroke="#111111" stroke-width="3"/>
-          <rect x="34" y="18" width="40" height="20" rx="8" fill="#111111"/>
-          <rect x="90" y="18" width="40" height="74" rx="8" stroke="#111111" stroke-width="3"/>
-          <rect x="90" y="18" width="40" height="20" rx="8" fill="#CC4725"/>
-          <rect x="146" y="18" width="40" height="74" rx="8" stroke="#111111" stroke-width="3"/>
-          <rect x="146" y="18" width="40" height="20" rx="8" fill="#9C9C96"/>
-          <rect x="98" y="48" width="24" height="5" rx="2.5" fill="#CC4725"/>
-          <rect x="98" y="59" width="16" height="5" rx="2.5" fill="#E6E2D9"/>
-          <rect x="42" y="48" width="24" height="5" rx="2.5" fill="#E6E2D9"/>
-          <rect x="154" y="48" width="24" height="5" rx="2.5" fill="#E6E2D9"/>
-        </svg></div>
+        <div class="gx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 17a4 4 0 0 1-8 0V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2Z" /> <path d="M16.7 13H19a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H7" /> <path d="M 7 17h.01" /> <path d="m11 8 2.3-2.3a2.4 2.4 0 0 1 3.404.004L18.6 7.6a2.4 2.4 0 0 1 .026 3.434L9.9 19.8" /></svg></div>
         <h3>전시 전용 테마</h3>
         <p>전시에 들어가면 앱 전체가 그 전시의 디자인으로 바뀝니다.</p>
       </div>
       <div class="ft">
-        <div class="dv"><svg viewBox="0 0 220 110" fill="none" aria-hidden="true">
-          <rect x="34" y="68" width="30" height="26" rx="4" stroke="#111111" stroke-width="3"/>
-          <rect x="78" y="50" width="30" height="44" rx="4" stroke="#111111" stroke-width="3"/>
-          <rect x="122" y="32" width="30" height="62" rx="4" fill="#CC4725"/>
-          <path d="M44 48l116-30m0 0h-16m16 0v15" stroke="#9C9C96" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg></div>
+        <div class="gx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15" /> <path d="M11 12 5.12 2.2" /> <path d="m13 12 5.88-9.8" /> <path d="M8 7h8" /> <circle cx="12" cy="17" r="5" /> <path d="M12 18v-2h-.5" /></svg></div>
         <h3>관람 등급</h3>
         <p>관람 횟수대로 등급이 오르고, 할인과 혜택이 열립니다.</p>
       </div>
