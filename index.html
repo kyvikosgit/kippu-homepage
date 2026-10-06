@@ -94,23 +94,6 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 .coming{margin-top:12px;border:1px dashed var(--line);border-radius:14px;padding:16px 22px;
   display:flex;justify-content:space-between;align-items:center;color:var(--meta);font-size:13.5px;font-weight:600}
 
-/* 앱 쇼케이스 — 실물 스크린 */
-.show2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;align-items:center;
-  background:#141311;color:#F3EFE8;border-radius:20px;overflow:hidden;
-  padding:clamp(30px,4.5vw,56px)}
-.scopy .k{font-size:11px;font-weight:900;letter-spacing:.24em;color:#E0502B}
-.scopy h2{font-size:clamp(23px,2.8vw,31px);font-weight:900;letter-spacing:-.02em;line-height:1.3;margin-top:12px}
-.scopy p{margin-top:14px;font-size:14px;color:rgba(243,239,232,.65);line-height:1.8;max-width:46ch}
-.scopy ul{margin-top:18px;display:flex;flex-direction:column;gap:8px}
-.scopy li{font-size:13.5px;font-weight:600;color:rgba(243,239,232,.88);display:flex;gap:9px;align-items:center}
-.scopy li::before{content:"";flex:none;width:5px;height:5px;border-radius:50%;background:#E0502B}
-.svis{position:relative;height:460px;min-width:0}
-.ph{position:absolute;width:218px;aspect-ratio:375/730;border-radius:30px;overflow:hidden;
-  border:6px solid #2B2A27;background:#000;box-shadow:0 34px 80px rgba(0,0,0,.55)}
-.ph img{width:100%;height:100%;object-fit:cover;object-position:top}
-.ph.back{left:6%;top:36px;transform:rotate(-6deg);opacity:.92}
-.ph.front{right:6%;top:0;transform:rotate(4deg);z-index:2}
-
 /* app */
 .appband{background:var(--brand-tint);border-radius:18px;padding:clamp(28px,4vw,44px);
   display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-bottom:8px}
@@ -134,11 +117,6 @@ footer a:hover{color:var(--ink)}
   .feature{grid-template-columns:1fr}
   .fvis{order:-1;min-height:0;aspect-ratio:1800/2548}
   .fvis::before{background:linear-gradient(180deg,rgba(18,27,26,0) 60%,#121B1A 100%)}
-  .show2{grid-template-columns:1fr;gap:10px}
-  .svis{height:420px}
-  .ph{width:184px}
-  .ph.back{left:0}
-  .ph.front{right:0}
 }
 </style>
 </head>
@@ -152,7 +130,6 @@ footer a:hover{color:var(--ink)}
   </form>
   <nav>
     <a href="#now">전시</a>
-    <a href="#only">특징</a>
     <a class="app" href="#app">앱 다운로드</a>
   </nav>
 </div></header>
@@ -191,25 +168,6 @@ footer a:hover{color:var(--ink)}
       </div>
     </div>
     <div class="coming"><span>다음 전시를 준비하고 있습니다</span><span>2027 공개</span></div>
-  </section>
-
-  <section class="sec" id="only">
-    <div class="show2">
-      <div class="scopy">
-        <div class="k">ONE APP, EVERY WORLD</div>
-        <h2>전시마다, 앱이<br>전시의 일부가 됩니다</h2>
-        <p>들어서는 순간, 앱은 그 전시의 색과 이야기로 바뀝니다.</p>
-        <ul>
-          <li>당신은 관람객이 아니라 등장인물</li>
-          <li>그 자리에서만 열리는 수집품</li>
-          <li>관람은 다음 전시로 이어집니다</li>
-        </ul>
-      </div>
-      <div class="svis">
-        <div class="ph back"><img src="img/app_home.jpg" alt="KIPPU 앱 홈 화면"></div>
-        <div class="ph front"><img src="img/app_monet.jpg" alt="MONET 100 전시 허브 화면"></div>
-      </div>
-    </div>
   </section>
 
   <section class="sec" id="app">
