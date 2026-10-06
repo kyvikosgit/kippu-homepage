@@ -94,49 +94,12 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 .coming{margin-top:12px;border:1px dashed var(--line);border-radius:14px;padding:16px 22px;
   display:flex;justify-content:space-between;align-items:center;color:var(--meta);font-size:13.5px;font-weight:600}
 
-/* 이 앱이 다른 이유 */
+/* KIPPU가 하는 일 */
 .fts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .ft{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 16px 22px}
 .ft h3{font-size:17px;font-weight:900;letter-spacing:-.015em;margin:18px 8px 0}
 .ft>p{margin:5px 8px 0;font-size:13.5px;color:var(--sub)}
-.fv{height:180px;border-radius:12px;display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;background:var(--fill)}
-/* a — 배역 승차권 */
-.fv.a{background:#121B1A}
-.role{width:216px;background:#F2EBD9;border-radius:10px;padding:14px 16px;transform:rotate(-3deg);
-  box-shadow:0 12px 30px rgba(0,0,0,.35);color:#3A352B}
-.role .rc{font-size:9.5px;font-weight:800;letter-spacing:.22em;color:#9A907D}
-.role .rt{font-family:'Noto Serif KR',serif;font-size:23px;font-weight:700;letter-spacing:.06em;margin-top:6px}
-.role .rd{border-top:1.5px dashed #CEC6B2;margin:10px 0 9px}
-.role .rb{font-size:12px;font-weight:600;color:#6E675C}
-.role .rb b{color:#9A3D22;font-weight:800}
-/* b — 한정 수집 */
-.colr{display:flex;flex-direction:column;align-items:center;gap:12px}
-.cnt{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 13px;
-  font-size:11.5px;font-weight:800;color:var(--brand)}
-.slots{display:flex;gap:10px}
-.slot{width:62px;height:62px;border-radius:10px;border:1.5px dashed #D8D2C4;background:#FBFAF7}
-.slot.on{border:0;background-size:cover;background-position:center;box-shadow:0 8px 20px rgba(17,17,17,.15)}
-/* c — 테마 스와치 */
-.fv.c{flex-direction:column;gap:0}
-.sw{width:212px;border-radius:11px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;
-  box-shadow:0 10px 26px rgba(17,17,17,.12)}
-.sw b{font-size:13.5px;font-weight:900;letter-spacing:.04em}
-.sw i{width:7px;height:7px;border-radius:50%}
-.sw.p{background:#F7F5F1;color:#111;transform:rotate(-2deg) translateY(7px)}
-.sw.p i{background:var(--brand)}
-.sw.m{background:#121B1A;color:#ECE3D2;transform:rotate(2deg) translateY(-2px);z-index:2}
-.sw.m b{font-family:'Noto Serif KR',serif;font-weight:600;letter-spacing:.1em}
-.sw.m i{background:#C14B2A}
-/* d — 등급 */
-.vLv{width:212px;background:#fff;border-radius:12px;padding:16px;box-shadow:0 10px 26px rgba(17,17,17,.1)}
-.vLv .r1{display:flex;align-items:baseline;justify-content:space-between}
-.vLv .r1 b{font-size:17px;font-weight:900}
-.vLv .r1 span{font-size:10.5px;color:var(--meta);font-weight:700}
-.vLv .bar{margin-top:10px;height:8px;border-radius:999px;background:var(--fill);overflow:hidden}
-.vLv .bar i{display:block;height:100%;width:68%;border-radius:999px;background:var(--brand)}
-.vLv .cpn{margin-top:12px;border:1.5px dashed #E8C9BC;border-radius:9px;padding:8px 11px;
-  font-size:11px;font-weight:800;color:var(--brand);background:var(--brand-tint)}
+.fv{aspect-ratio:16/9;border-radius:12px;background-size:cover;background-position:center}
 
 /* app */
 .appband{background:var(--brand-tint);border-radius:18px;padding:clamp(28px,4vw,44px);
@@ -219,56 +182,26 @@ footer a:hover{color:var(--ink)}
   <section class="sec" id="only">
     <div class="h"><h2>KIPPU가 하는 일</h2></div>
     <div class="fts">
-
       <div class="ft">
-        <div class="fv a">
-          <div class="role">
-            <div class="rc">MONET 100 — 승차권</div>
-            <div class="rt">PARIS, 1874</div>
-            <div class="rd"></div>
-            <div class="rb">당신의 배역 — <b>여행자</b></div>
-          </div>
-        </div>
+        <div class="fv" style="background-image:url('/monet100-web/img/lazare.jpg')"></div>
         <h3>역할이 있는 관람</h3>
         <p>전시 시나리오를 따라 관람이 진행됩니다.</p>
       </div>
-
       <div class="ft">
-        <div class="fv b">
-          <div class="colr">
-            <span class="cnt">수집품 1/5</span>
-            <div class="slots">
-              <span class="slot on" style="background-image:url('/monet100-web/img/sunrise.jpg')"></span>
-              <span class="slot"></span>
-              <span class="slot"></span>
-            </div>
-          </div>
-        </div>
+        <div class="fv" style="background-image:url('/monet100-web/img/sunrise.jpg')"></div>
         <h3>현장 한정 수집</h3>
         <p>수집품은 전시장 안에서만 얻을 수 있습니다.</p>
       </div>
-
       <div class="ft">
-        <div class="fv c">
-          <div class="sw p"><b>KIPPU</b><i></i></div>
-          <div class="sw m"><b>Monet 100</b><i></i></div>
-        </div>
+        <div class="fv" style="background-image:url('/monet100-web/img/keyvisual.jpg');background-position:center 18%"></div>
         <h3>전시 전용 테마</h3>
         <p>전시마다 앱의 화면과 콘텐츠가 새로 제작됩니다.</p>
       </div>
-
       <div class="ft">
-        <div class="fv d">
-          <div class="vLv">
-            <div class="r1"><b>Lv. 2</b><span>다음 등급까지 1회</span></div>
-            <div class="bar"><i></i></div>
-            <div class="cpn">다음 전시 우선 예매 · 관람권 할인</div>
-          </div>
-        </div>
+        <div class="fv" style="background-image:url('/monet100-web/img/portrait.jpg');background-position:center 22%"></div>
         <h3>누적 관람 혜택</h3>
         <p>관람 기록에 따라 할인과 우선 예매가 열립니다.</p>
       </div>
-
     </div>
   </section>
 
