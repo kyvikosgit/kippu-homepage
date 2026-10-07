@@ -97,12 +97,13 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 .bandx .cap{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--brand)}
 .bandx h2{font-size:clamp(26px,3.6vw,40px);font-weight:900;letter-spacing:-.03em;line-height:1.25;margin-top:14px}
 .bandx .rows{margin-top:clamp(30px,4vw,48px);border-top:1px solid rgba(255,255,255,.95)}
-.bandx .rw{display:grid;grid-template-columns:72px minmax(150px,300px) 1fr;gap:24px;align-items:center;
-  padding:26px 2px;border-bottom:1px solid rgba(255,255,255,.14)}
+.bandx .rw{display:grid;grid-template-columns:72px 1fr auto;gap:24px;align-items:center;
+  padding:28px 2px;border-bottom:1px solid rgba(255,255,255,.14)}
 .bandx .ri{color:var(--brand)}
 .bandx .ri svg{width:46px;height:46px;display:block}
-.bandx .rw h3{font-size:18px;font-weight:800;letter-spacing:-.01em}
-.bandx .rw p{font-size:14px;color:#A8A8A2;text-align:right}
+.bandx .rw h3{font-size:19px;font-weight:800;letter-spacing:-.01em}
+.bandx .sc{margin-top:7px;font-size:14.5px;color:#C9C9C2;max-width:56ch}
+.bandx .tg{font-size:13px;color:#8C8C86;white-space:nowrap;align-self:center}
 .bandx .open{margin-top:26px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
 .bandx .open b{font-size:15px;font-weight:800}.bandx .open b i{font-style:normal;color:var(--brand)}
 .bandx .open span{font-size:13px;color:#A8A8A2}
@@ -119,7 +120,7 @@ footer a:hover{color:var(--ink)}
   .top nav a:not(.app){display:none}
   .bandx .rw{grid-template-columns:40px 1fr;gap:8px 14px}
   .bandx .ri svg{width:30px;height:30px}
-  .bandx .rw p{grid-column:2;text-align:left}
+  .bandx .tg{grid-column:2;white-space:normal}
   .feature{grid-template-columns:1fr}
   .fvis{order:-1;min-height:0;aspect-ratio:1800/2548}
   .fvis::before{background:linear-gradient(180deg,rgba(18,27,26,0) 60%,#121B1A 100%)}
@@ -179,13 +180,24 @@ footer a:hover{color:var(--ink)}
     <div class="rows">
       <div class="rw">
         <span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/><path d="M8 13a4 4 0 0 0 8 0"/></svg></span>
-        <h3>카메라로 여는 체험</h3><p>AR · 사물인식 · 공간인식</p></div>
+        <div class="rc"><h3>카메라로 여는 체험</h3>
+          <p class="sc">그림을 비추면 심사가 시작되고, 책상 위에서 기차표를 찾아내면 내 것이 됩니다.</p></div>
+        <p class="tg">AR · 사물인식 · 공간인식</p></div>
+      <div class="rw">
+        <span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 22h14"/><path d="M19.27 13.73A2.5 2.5 0 0 0 17.5 13h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1.5c0-.66-.26-1.3-.73-1.77Z"/><path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-6 0c0 2 1 2 1 3.5V13"/></svg></span>
+        <div class="rc"><h3>화면에 찍히는 도장</h3>
+          <p class="sc">스태프가 실물 도장을 내 화면에 누르면, 그 자리에서 표가 개표됩니다.</p></div>
+        <p class="tg">스마트 스탬프 · 정전식 인식</p></div>
       <div class="rw">
         <span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg></span>
-        <h3>귀로 듣는 전시</h3><p>오디오 도슨트 · 작품 도감</p></div>
+        <div class="rc"><h3>귀로 듣는 전시</h3>
+          <p class="sc">존에 들어서면 그 방의 이야기가 이어집니다. 대여기 없이, 내 폰으로.</p></div>
+        <p class="tg">오디오 도슨트 · 작품 도감</p></div>
       <div class="rw">
         <span class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg></span>
-        <h3>쌓이는 관람</h3><p>다녀온 전시 · 모은 조각 · 나의 기록</p></div>
+        <div class="rc"><h3>쌓이는 관람</h3>
+          <p class="sc">전시장에서 모은 조각이 엠블럼이 되고, 다녀온 전시는 연대기로 남습니다.</p></div>
+        <p class="tg">수집품 · 엠블럼 · 관람 기록</p></div>
     </div>
     <div class="open" id="app">
       <b><i>KIPPU</i> 앱</b>
