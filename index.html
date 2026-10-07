@@ -11,8 +11,18 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='12' y='30' width='76' height='40' rx='6' fill='%23CC4725'/><circle cx='12' cy='50' r='6' fill='%23FFFFFF'/><circle cx='88' cy='50' r='6' fill='%23FFFFFF'/></svg>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+@font-face{font-family:'Freesentation';font-weight:400;font-style:normal;
+  src:url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2404@1.0/Freesentation-4Regular.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Freesentation';font-weight:500;font-style:normal;
+  src:url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2404@1.0/Freesentation-5Medium.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Freesentation';font-weight:600;font-style:normal;
+  src:url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2404@1.0/Freesentation-6SemiBold.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Freesentation';font-weight:700;font-style:normal;
+  src:url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2404@1.0/Freesentation-7Bold.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Freesentation';font-weight:800;font-style:normal;
+  src:url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2404@1.0/Freesentation-8ExtraBold.woff2') format('woff2');font-display:swap}
 @font-face{font-family:'Paperlogy';font-weight:800;font-style:normal;
   src:url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');font-display:swap}
 @font-face{font-family:'Paperlogy';font-weight:600;font-style:normal;
@@ -26,7 +36,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:Pretendard,-apple-system,sans-serif;
+body{background:var(--bg);color:var(--ink);font-family:Freesentation,Pretendard,-apple-system,sans-serif;
   line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
@@ -54,7 +64,7 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 
 /* masthead — 타이포만으로 */
 .mast{padding:clamp(88px,15vh,180px) 0 clamp(56px,9vh,110px)}
-.mast .cap{font-family:'Space Grotesk',Pretendard,sans-serif;font-size:13px;font-weight:700;letter-spacing:.22em;color:var(--brand)}
+.mast .cap{font-size:13px;font-weight:700;letter-spacing:.22em;color:var(--brand)}
 .mast h1{font-family:'Paperlogy',Pretendard,sans-serif;font-size:clamp(42px,7.2vw,84px);font-weight:800;letter-spacing:-.02em;line-height:1.12;margin-top:18px}
 .mast h1 i{font-style:normal;color:var(--brand)}
 .mast p{margin-top:24px;font-size:clamp(15px,1.6vw,18px);color:var(--sub);font-weight:500}
@@ -98,7 +108,7 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 /* 특징 — 풀블리드 블랙 밴드 (타이포 온리) */
 .bandx{margin:48px calc(50% - 50vw) 0;background:#111111;color:#F5F3EE;
   padding:clamp(56px,8vw,96px) calc(50vw - 50%)}
-.bandx .cap{font-family:'Space Grotesk',Pretendard,sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--brand)}
+.bandx .cap{font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--brand)}
 .bandx h2{font-family:'Paperlogy',Pretendard,sans-serif;font-size:clamp(26px,3.6vw,40px);font-weight:800;letter-spacing:-.01em;line-height:1.25;margin-top:14px}
 .bandx .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(34px,5vw,52px)}
 .tile{background:#1B1B1B;border:1px solid rgba(255,255,255,.08);border-radius:14px;
@@ -106,7 +116,7 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 .tile:hover{border-color:rgba(204,71,37,.6)}
 .tile .gfx{flex:1;display:flex;align-items:center;justify-content:center;color:var(--brand);padding:14px 0 26px}
 .tile .gfx svg{width:116px;height:116px}
-.tile h3{font-family:'Space Grotesk',Pretendard,sans-serif;font-size:clamp(19px,2vw,23px);font-weight:700;letter-spacing:.08em}
+.tile h3{font-size:clamp(19px,2vw,23px);font-weight:700;letter-spacing:.08em}
 .tile p{margin-top:7px;font-size:12.5px;color:#8C8C86}
 .tile .gfx svg path{transition:transform .5s cubic-bezier(.22,1,.36,1);transform-origin:center;transform-box:fill-box}
 /* EXPERIENCE — 뷰파인더 코너가 숨쉬듯 벌어졌다 모인다 */
