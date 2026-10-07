@@ -68,33 +68,25 @@ nav a:hover::after{width:100%}
 .hero-in{display:flex;flex-direction:column;justify-content:flex-end;padding:120px 4vw 7vh}
 .overline{font-size:11px;letter-spacing:.5em;color:var(--cream);opacity:.75;text-transform:uppercase}
 .herocopy{font-family:"Noto Serif KR",serif;font-weight:300;font-size:clamp(16px,1.9vw,22px);
-  line-height:1.9;letter-spacing:.14em;margin:8vh 0 5vh}
+  line-height:1.9;margin:8vh 0 5vh}
 .lockup{width:min(100%,560px);height:auto;
   filter:drop-shadow(0 2px 24px rgba(0,0,0,.35))}
 .hero-foot{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px 44px;margin-top:7vh;
   border-top:1px solid var(--hair);padding-top:26px}
 .hero-foot .dates{font-family:"Fraunces",serif;font-size:clamp(17px,2.2vw,24px);letter-spacing:.04em}
-.hero-foot .venue{font-size:12px;letter-spacing:.3em;color:var(--dim)}
+.hero-foot .venue{font-size:13px;color:var(--dim)}
 .hero-foot .cta{margin-left:auto;display:inline-flex;align-items:center;background:var(--rust);color:#F7EFE2;
   font-size:12.5px;font-weight:700;letter-spacing:.2em;padding:13px 24px;border-radius:8px;transition:opacity .2s}
 .hero-foot .cta:hover{opacity:.9}
 .credit{position:absolute;z-index:2;right:18px;top:50%;transform:rotate(90deg) translateX(50%);transform-origin:right center;
   font-size:10px;letter-spacing:.28em;color:rgba(236,227,210,.55);white-space:nowrap}
 
-/* ── ticker */
-.ticker{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);overflow:hidden;
-  padding:13px 0;background:var(--deep)}
-.ticker-in{display:flex;gap:64px;white-space:nowrap;animation:slide 36s linear infinite;width:max-content}
-.ticker span{font-size:11.5px;letter-spacing:.34em;color:var(--dim)}
-.ticker b{color:var(--rust);font-weight:400}
-@keyframes slide{to{transform:translateX(-50%)}}
-
 /* ── sections */
 section{padding:clamp(90px,14vh,160px) 4vw}
 .sec-head{display:flex;align-items:baseline;gap:26px;margin-bottom:clamp(44px,7vh,80px);
   max-width:1280px;margin-left:auto;margin-right:auto}
 .sec-no{font-family:"Fraunces",serif;font-style:italic;font-weight:300;font-size:15px;color:var(--rust);letter-spacing:.1em}
-.sec-title{font-family:"Noto Serif KR",serif;font-weight:400;font-size:clamp(22px,3vw,30px);letter-spacing:.3em}
+.sec-title{font-family:"Noto Serif KR",serif;font-weight:400;font-size:clamp(22px,3vw,30px)}
 .sec-rule{flex:1;height:1px;background:var(--hair)}
 
 /* about */
@@ -124,7 +116,7 @@ section{padding:clamp(90px,14vh,160px) 4vw}
 
 /* tickets */
 .tix{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,110px)}
-.tix h3{font-family:"Noto Serif KR",serif;font-weight:400;font-size:19px;letter-spacing:.12em;margin-bottom:22px}
+.tix h3{font-family:"Noto Serif KR",serif;font-weight:400;font-size:19px;margin-bottom:22px}
 .tix ol{list-style:none;counter-reset:n}
 .tix li{counter-increment:n;display:flex;gap:20px;padding:17px 0;border-top:1px solid var(--hair);
   font-size:14.5px;color:var(--dim)}
@@ -201,27 +193,18 @@ footer .legal a:hover{color:#111111}
 
 <div class="hero">
   <div class="hero-in">
-    <div class="overline">House of Shinsegae · Heritage</div>
+    <div class="overline">The Heritage 4F Museum</div>
     <p class="herocopy">모네에서 샤넬로,<br>그리고 지금</p>
     <img class="lockup" src="img/logo_lockup.png" alt="Monet 100 — 시대를 읽는 감각의 계보">
     <div class="hero-foot">
       <span class="dates">2026.12.3 — 2027.2.28</span>
-      <span class="venue">THE HERITAGE 4F MUSEUM</span>
+      <span class="venue">신세계본점 더 헤리티지 4F 뮤지엄</span>
       <a class="cta" href="#tickets">TICKETS</a>
     </div>
   </div>
   <div class="hero-vis">
     <img class="bg" src="img/keyvisual.jpg" alt="MONET 100 키비주얼 — 모네 자화상과 인상, 해돋이" fetchpriority="high">
     <div class="credit">CLAUDE MONET — SELF-PORTRAIT 1886 · IMPRESSION, SOLEIL LEVANT 1872</div>
-  </div>
-</div>
-
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-in">
-    <span>모네에서 샤넬로, 그리고 지금</span><span><b>2026.12.3 — 2027.2.28</b></span>
-    <span>매 정시 입장 · 회차당 60분</span><span>THE HERITAGE 4F MUSEUM</span>
-    <span>모네에서 샤넬로, 그리고 지금</span><span><b>2026.12.3 — 2027.2.28</b></span>
-    <span>매 정시 입장 · 회차당 60분</span><span>THE HERITAGE 4F MUSEUM</span>
   </div>
 </div>
 
@@ -236,7 +219,7 @@ footer .legal a:hover{color:#111111}
         그러나 시대는 이미 그 기준을 넘어<br>움직이고 있었습니다.<br><br>
         <b>MONET 100</b>은 인상주의 이후 100년,<br>
         시대의 다음을 가장 먼저 감각한 이들의<br>
-        계보를 따라갑니다 —<br>
+        계보를 따라갑니다.<br>
         <span class="accent">모네에서 샤넬로, 그리고 지금.</span>
       </p>
       <p class="body">
@@ -279,21 +262,21 @@ footer .legal a:hover{color:#111111}
       <h3>관람권 구매</h3>
       <ol>
         <li><span><b>NOL(놀티켓)</b>에서 관람일·회차를 선택해 구매</span></li>
-        <li><span><b>KIPPU 앱</b>에 예매번호 등록 — QR 입장권으로 전환</span></li>
+        <li><span><b>KIPPU 앱</b>에 예매번호를 등록하면 QR 입장권으로 바뀝니다</span></li>
         <li><span>전시장에서 QR 제시 후 입장</span></li>
       </ol>
       <p class="note">티켓은 앱 계정에 보관되어 어느 기기에서든 유지됩니다.<br>
-      취소·환불은 구매처(NOL) 규정을 따릅니다 — <a href="refund.html">취소·환불 규정</a></p>
+      취소·환불은 구매처(NOL) 규정을 따릅니다. <a href="refund.html">취소·환불 규정</a></p>
     </div>
     <div>
-      <h3>전시는 앱과 함께 진행됩니다</h3>
+      <h3>앱과 함께하는 관람</h3>
       <ol>
         <li><span>존 입구의 QR을 스캔하면 <b>미션</b>이 시작됩니다</span></li>
         <li><span>전시물을 찾아 <b>다섯 조각</b>을 수집하세요</span></li>
-        <li><span>완주하면 <b>관람 등급</b>이 오릅니다 — 다음 전시로 이어집니다</span></li>
+        <li><span>완주하면 <b>관람 등급</b>이 오릅니다</span></li>
       </ol>
       <p class="note">오디오 도슨트 · 작품 도감 · 수집품 보관함 제공<br>
-      <a href="/#app">KIPPU 앱 — 2026년 11월 공개 ›</a></p>
+      <a href="/#app">KIPPU 앱 · 2026년 11월 공개 ›</a></p>
     </div>
   </div>
 </section>
