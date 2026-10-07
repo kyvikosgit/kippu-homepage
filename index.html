@@ -104,10 +104,34 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 .tile .gfx svg{width:116px;height:116px}
 .tile h3{font-size:clamp(19px,2vw,23px);font-weight:900;letter-spacing:.06em}
 .tile p{margin-top:7px;font-size:12.5px;color:#8C8C86}
-.bandx .open{margin-top:26px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
-.bandx .open b{font-size:15px;font-weight:800}.bandx .open b i{font-style:normal;color:var(--brand)}
-.bandx .open span{font-size:13px;color:#A8A8A2}
+.tile .gfx svg path{transition:transform .5s cubic-bezier(.22,1,.36,1);transform-origin:center;transform-box:fill-box}
+/* EXPERIENCE — 뷰파인더 코너가 벌어진다 */
+.tile--xp:hover .gfx svg path:nth-of-type(1){transform:translate(-1.4px,-1.4px)}
+.tile--xp:hover .gfx svg path:nth-of-type(2){transform:translate(1.4px,-1.4px)}
+.tile--xp:hover .gfx svg path:nth-of-type(3){transform:translate(1.4px,1.4px)}
+.tile--xp:hover .gfx svg path:nth-of-type(4){transform:translate(-1.4px,1.4px)}
+/* DOCENT — 웨이브폼이 이퀄라이저처럼 뛴다 */
+@keyframes eq{from{transform:scaleY(.45)}to{transform:scaleY(1.3)}}
+.tile--dc:hover .gfx svg path{animation:eq .75s ease-in-out infinite alternate}
+.tile--dc:hover .gfx svg path:nth-of-type(2){animation-delay:.1s}
+.tile--dc:hover .gfx svg path:nth-of-type(3){animation-delay:.22s}
+.tile--dc:hover .gfx svg path:nth-of-type(4){animation-delay:.34s}
+.tile--dc:hover .gfx svg path:nth-of-type(5){animation-delay:.14s}
+.tile--dc:hover .gfx svg path:nth-of-type(6){animation-delay:.28s}
+/* ARCHIVE — 레이어가 분리된다 */
+.tile--ar:hover .gfx svg path:nth-of-type(1){transform:translateY(-1.8px)}
+.tile--ar:hover .gfx svg path:nth-of-type(3){transform:translateY(1.8px)}
 
+
+/* app 독립 섹션 */
+.appsec{border-top:1px solid var(--ink);padding:clamp(40px,6vw,64px) 2px clamp(28px,4vw,40px);
+  display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.appsec h2{font-size:clamp(24px,3vw,34px);font-weight:900;letter-spacing:-.02em}
+.appsec h2 i{font-style:normal;color:var(--brand)}
+.appsec>div>p{margin-top:8px;font-size:14px;color:var(--sub);font-weight:500}
+.appmeta{text-align:right}
+.appmeta b{display:block;font-size:17px;font-weight:800}
+.appmeta span{font-size:13px;color:var(--meta);font-weight:600}
 
 /* footer */
 footer{border-top:1px solid var(--line);margin-top:44px;padding:34px 0 52px;color:var(--meta);font-size:12px;line-height:2}
@@ -179,27 +203,35 @@ footer a:hover{color:var(--ink)}
     <div class="cap">WHY KIPPU</div>
     <h2>입장부터 체험, 기록까지</h2>
     <div class="tiles">
-      <div class="tile">
+      <div class="tile tile--xp">
         <div class="gfx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/><path d="M8 13a4 4 0 0 0 8 0"/></svg></div>
         <h3>EXPERIENCE</h3>
         <p>AR · 사물인식 · 공간인식 · 스마트 스탬프</p>
       </div>
-      <div class="tile">
+      <div class="tile tile--dc">
         <div class="gfx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/></svg></div>
         <h3>DOCENT</h3>
         <p>오디오 해설 · 작품 도감 · 전시장 안내</p>
       </div>
-      <div class="tile">
+      <div class="tile tile--ar">
         <div class="gfx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></div>
         <h3>ARCHIVE</h3>
         <p>수집품 · 엠블럼 · 관람 아카이브</p>
       </div>
     </div>
-    <div class="open" id="app">
-      <b><i>KIPPU</i> 앱</b>
-      <span>2026년 11월 · App Store / Google Play 공개</span>
-    </div>
   </section>
+
+  <section class="sec" id="app">
+    <div class="appsec">
+      <div>
+        <h2><i>KIPPU</i> 앱</h2>
+        <p>관람의 모든 순간을 담을 준비를 하고 있습니다.</p>
+      </div>
+      <div class="appmeta">
+        <b>2026년 11월 공개</b>
+        <span>App Store · Google Play</span>
+      </div>
+    </div>
 
 </div>
 
