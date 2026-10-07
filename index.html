@@ -44,22 +44,15 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 .top nav a.app{background:var(--brand);color:#fff;border-radius:var(--rbtn);padding:10px 18px;font-weight:700}
 .top nav a.app:hover{background:var(--brand-deep);color:#fff}
 
-/* hero */
-.hero{background:var(--brand);color:#fff;border-radius:20px;margin-top:16px;
-  padding:clamp(36px,5vw,56px) clamp(28px,5vw,56px);position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;right:-70px;top:-70px;width:260px;height:260px;
-  border:44px solid rgba(255,255,255,.08);border-radius:50%}
-.hero .cap{font-size:12.5px;font-weight:700;letter-spacing:.14em;opacity:.85}
-.hero h1{font-size:clamp(30px,4.6vw,46px);font-weight:900;letter-spacing:-.025em;line-height:1.22;margin-top:10px}
-.hero p{margin-top:14px;font-size:clamp(14px,1.7vw,16px);opacity:.92;max-width:48ch}
-.hero .btns{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
-.hero .cta{display:inline-flex;align-items:center;background:#fff;color:var(--brand);
-  border-radius:var(--rbtn);height:50px;padding:0 26px;font-weight:800;font-size:15px}
-.hero .cta.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
-.hero .cta:hover{opacity:.92}
+/* masthead — 타이포만으로 */
+.mast{padding:clamp(40px,6vw,72px) 0 clamp(8px,2vw,16px)}
+.mast .cap{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--brand)}
+.mast h1{font-size:clamp(34px,5.6vw,58px);font-weight:900;letter-spacing:-.035em;line-height:1.14;margin-top:12px}
+.mast h1 i{font-style:normal;color:var(--brand)}
+.mast p{margin-top:16px;font-size:15px;color:var(--sub);font-weight:500}
 
 /* sections */
-.sec{padding:36px 0 8px}
+.sec{padding:40px 0 8px}
 .sec .h{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
 .sec h2{font-size:21px;font-weight:800;letter-spacing:-.01em}
 .sec h2 i{font-style:normal;color:var(--brand)}
@@ -67,7 +60,7 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 
 /* 지금 전시 중 — 키비주얼 피처 (모네 월드 그대로) */
 .feature{display:grid;grid-template-columns:minmax(0,1fr) clamp(320px,40%,480px);
-  background:#121B1A;color:#ECE3D2;border-radius:20px;overflow:hidden}
+  background:#121B1A;color:#ECE3D2;border-radius:10px;overflow:hidden;margin-bottom:14px}
 .fcopy{padding:clamp(30px,4.2vw,54px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
 .overline{font-size:11px;letter-spacing:.42em;color:rgba(236,227,210,.7);font-weight:600}
 .fserif{font-family:'Noto Serif KR',serif;font-weight:400;font-size:clamp(16px,1.8vw,20px);
@@ -91,28 +84,22 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 .bdg{position:absolute;top:16px;right:16px;display:flex;gap:6px;z-index:2}
 .bdg span{background:#C14B2A;color:#F7EFE2;font-size:11.5px;font-weight:800;border-radius:6px;padding:5px 10px;letter-spacing:.02em}
 .bdg span.w{background:rgba(255,255,255,.94);color:var(--ink)}
-.coming{margin-top:12px;border:1px dashed var(--line);border-radius:14px;padding:16px 22px;
+.coming{margin-top:0;border-bottom:1px solid var(--line);padding:16px 2px;
   display:flex;justify-content:space-between;align-items:center;color:var(--meta);font-size:13.5px;font-weight:600}
 
-/* KIPPU가 하는 일 — 아이콘(Lucide) */
-.fts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.ft{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 22px 28px}
-.gx{width:54px;height:54px;border-radius:14px;background:var(--brand-tint);color:var(--brand);
-  display:flex;align-items:center;justify-content:center}
-.gx svg{width:28px;height:28px}
-.ft h3{font-size:16px;font-weight:900;letter-spacing:-.01em;margin-top:16px}
-.ft>p{margin-top:5px;font-size:13px;color:var(--sub);line-height:1.65}
+/* KIPPU가 하는 일 — 번호 리스트 */
+.works{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;border-top:1px solid var(--ink)}
+.wk{display:flex;gap:18px;align-items:baseline;padding:22px 2px;border-bottom:1px solid var(--line)}
+.wk .no{flex:none;font-size:13px;font-weight:800;color:var(--brand);font-variant-numeric:tabular-nums}
+.wk h3{font-size:16px;font-weight:800;letter-spacing:-.01em}
+.wk p{margin-top:3px;font-size:13.5px;color:var(--sub)}
 
-/* app */
-.appband{background:var(--brand-tint);border-radius:18px;padding:clamp(28px,4vw,44px);
-  display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-bottom:8px}
-.appband h2{font-size:clamp(19px,2.4vw,24px);font-weight:900;letter-spacing:-.015em}
-.appband h2 i{font-style:normal;color:var(--brand)}
-.appband p{margin-top:6px;color:var(--sub);font-size:14px}
-.badges{display:flex;gap:10px}
-.badge{border:1px solid #E8D5CC;border-radius:var(--rbtn);padding:12px 18px;background:#fff}
-.badge b{display:block;font-size:14px}
-.badge small{color:var(--meta);font-size:11.5px}
+/* app — 스트립 */
+.appstrip{border-top:1px solid var(--ink);border-bottom:1px solid var(--line);
+  padding:20px 2px;display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.appstrip b{font-size:16px;font-weight:800}
+.appstrip b i{font-style:normal;color:var(--brand)}
+.appstrip span{color:var(--sub);font-size:13.5px;font-weight:500}
 
 /* footer */
 footer{border-top:1px solid var(--line);margin-top:44px;padding:34px 0 52px;color:var(--meta);font-size:12px;line-height:2}
@@ -123,7 +110,7 @@ footer a:hover{color:var(--ink)}
 @media (max-width:860px){
   .search{display:none}
   .top nav a:not(.app){display:none}
-  .fts{grid-template-columns:1fr 1fr;gap:10px}
+  .works{grid-template-columns:1fr}
   .feature{grid-template-columns:1fr}
   .fvis{order:-1;min-height:0;aspect-ratio:1800/2548}
   .fvis::before{background:linear-gradient(180deg,rgba(18,27,26,0) 60%,#121B1A 100%)}
@@ -147,14 +134,10 @@ footer a:hover{color:var(--ink)}
 
 <div class="wrap">
 
-  <section class="hero">
+  <section class="mast">
     <div class="cap">EXHIBITION COMPANION</div>
-    <h1>관람의 모든 순간,<br>곁에 두는 앱</h1>
-    <p>입장권부터 작품 해설, 전시장 곳곳에 녹아 있는 체험, 관람이 남기는 기록까지 — KIPPU는 종합 전시를 끝까지 깊게 겪도록 돕는 새로운 전시 보조 앱입니다.</p>
-    <div class="btns">
-      <a class="cta" href="#now">지금 전시 보기</a>
-      <a class="cta ghost" href="#app">앱 다운로드</a>
-    </div>
+    <h1>관람의 모든 순간,<br>곁에 두는 <i>앱</i></h1>
+    <p>입장권부터 수집까지, 전시 하나를 끝까지.</p>
   </section>
 
   <section class="sec" id="now">
@@ -183,40 +166,18 @@ footer a:hover{color:var(--ink)}
 
   <section class="sec" id="only">
     <div class="h"><h2>KIPPU가 하는 일</h2></div>
-    <div class="fts">
-      <div class="ft">
-        <div class="gx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1" /> <rect width="5" height="5" x="16" y="3" rx="1" /> <rect width="5" height="5" x="3" y="16" rx="1" /> <path d="M21 16h-3a2 2 0 0 0-2 2v3" /> <path d="M21 21v.01" /> <path d="M12 7v3a2 2 0 0 1-2 2H7" /> <path d="M3 12h.01" /> <path d="M12 3h.01" /> <path d="M12 16v.01" /> <path d="M16 12h1" /> <path d="M21 12v.01" /> <path d="M12 21v-1" /></svg></div>
-        <h3>전시 미션</h3>
-        <p>존마다 QR로 미션이 열리고, 조각이 모입니다.</p>
-      </div>
-      <div class="ft">
-        <div class="gx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1" /> <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" /> <path d="M10 12h4" /></svg></div>
-        <h3>수집품 보관함</h3>
-        <p>관람 중 모은 조각이 계정에 남습니다.</p>
-      </div>
-      <div class="ft">
-        <div class="gx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 17a4 4 0 0 1-8 0V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2Z" /> <path d="M16.7 13H19a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H7" /> <path d="M 7 17h.01" /> <path d="m11 8 2.3-2.3a2.4 2.4 0 0 1 3.404.004L18.6 7.6a2.4 2.4 0 0 1 .026 3.434L9.9 19.8" /></svg></div>
-        <h3>전시 전용 테마</h3>
-        <p>전시에 들어가면 앱 전체가 그 전시의 디자인으로 바뀝니다.</p>
-      </div>
-      <div class="ft">
-        <div class="gx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.21 15 2.66 7.14a2 2 0 0 1 .13-2.2L4.4 2.8A2 2 0 0 1 6 2h12a2 2 0 0 1 1.6.8l1.6 2.14a2 2 0 0 1 .14 2.2L16.79 15" /> <path d="M11 12 5.12 2.2" /> <path d="m13 12 5.88-9.8" /> <path d="M8 7h8" /> <circle cx="12" cy="17" r="5" /> <path d="M12 18v-2h-.5" /></svg></div>
-        <h3>관람 등급</h3>
-        <p>관람 횟수대로 등급이 오르고, 할인과 혜택이 열립니다.</p>
-      </div>
+    <div class="works">
+      <div class="wk"><span class="no">01</span><div><h3>전시 미션</h3><p>존마다 QR로 미션이 열리고, 조각이 모입니다.</p></div></div>
+      <div class="wk"><span class="no">02</span><div><h3>수집품 보관함</h3><p>관람 중 모은 조각이 계정에 남습니다.</p></div></div>
+      <div class="wk"><span class="no">03</span><div><h3>전시 전용 테마</h3><p>전시에 들어가면 앱 전체가 그 전시의 디자인으로 바뀝니다.</p></div></div>
+      <div class="wk"><span class="no">04</span><div><h3>관람 등급</h3><p>관람 횟수대로 등급이 오르고, 할인과 혜택이 열립니다.</p></div></div>
     </div>
   </section>
 
   <section class="sec" id="app">
-    <div class="appband">
-      <div>
-        <h2>종합 전시의 새로운 관람 동반자, <i>KIPPU</i></h2>
-        <p>2026년 11월, App Store와 Google Play에서 공개됩니다.</p>
-      </div>
-      <div class="badges">
-        <div class="badge"><b>App Store</b><small>2026. 11 공개</small></div>
-        <div class="badge"><b>Google Play</b><small>2026. 11 공개</small></div>
-      </div>
+    <div class="appstrip">
+      <b><i>KIPPU</i> 앱</b>
+      <span>2026년 11월 · App Store / Google Play 공개</span>
     </div>
   </section>
 
