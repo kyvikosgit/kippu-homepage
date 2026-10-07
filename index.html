@@ -91,23 +91,20 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
 .coming{margin-top:0;border-bottom:1px solid var(--line);padding:16px 2px;
   display:flex;justify-content:space-between;align-items:center;color:var(--meta);font-size:13.5px;font-weight:600}
 
-/* KIPPU가 하는 일 — 헤어라인 그리드 + 아이콘 + 고스트 숫자 */
-.works{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
-.wk{position:relative;padding:30px 26px 34px;border-bottom:1px solid var(--line);overflow:hidden}
-.wk{border-right:1px solid var(--line)}
-.wk:last-child{border-right:0}
-.wk:first-child{padding-left:2px}
-.wk .ic{position:relative;width:32px;height:32px;color:var(--brand)}
-.wk .ic svg{width:32px;height:32px}
-.wk h3{position:relative;font-size:17px;font-weight:800;letter-spacing:-.01em;margin-top:16px}
-.wk p{position:relative;margin-top:5px;font-size:13.5px;color:var(--sub);max-width:34ch}
+/* 특징 — 풀블리드 블랙 밴드 (타이포 온리) */
+.bandx{margin:48px calc(50% - 50vw) 0;background:#111111;color:#F5F3EE;
+  padding:clamp(56px,8vw,96px) calc(50vw - 50%)}
+.bandx .cap{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--brand)}
+.bandx h2{font-size:clamp(26px,3.6vw,40px);font-weight:900;letter-spacing:-.03em;line-height:1.25;margin-top:14px}
+.bandx .rows{margin-top:clamp(30px,4vw,48px);border-top:1px solid rgba(255,255,255,.95)}
+.bandx .rw{display:grid;grid-template-columns:minmax(150px,260px) 1fr;gap:20px;align-items:baseline;
+  padding:22px 2px;border-bottom:1px solid rgba(255,255,255,.14)}
+.bandx .rw h3{font-size:17px;font-weight:800;letter-spacing:-.01em}
+.bandx .rw p{font-size:14px;color:#A8A8A2}
+.bandx .open{margin-top:26px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.bandx .open b{font-size:15px;font-weight:800}.bandx .open b i{font-style:normal;color:var(--brand)}
+.bandx .open span{font-size:13px;color:#A8A8A2}
 
-/* app — 스트립 */
-.appstrip{border-top:1px solid var(--ink);border-bottom:1px solid var(--line);
-  padding:20px 2px;display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.appstrip b{font-size:16px;font-weight:800}
-.appstrip b i{font-style:normal;color:var(--brand)}
-.appstrip span{color:var(--sub);font-size:13.5px;font-weight:500}
 
 /* footer */
 footer{border-top:1px solid var(--line);margin-top:44px;padding:34px 0 52px;color:var(--meta);font-size:12px;line-height:2}
@@ -118,8 +115,7 @@ footer a:hover{color:var(--ink)}
 @media (max-width:860px){
   .search{display:none}
   .top nav a:not(.app){display:none}
-  .works{grid-template-columns:1fr}
-  .wk{border-right:0;padding-left:2px}
+  .bandx .rw{grid-template-columns:1fr;gap:6px}
   .feature{grid-template-columns:1fr}
   .fvis{order:-1;min-height:0;aspect-ratio:1800/2548}
   .fvis::before{background:linear-gradient(180deg,rgba(18,27,26,0) 60%,#121B1A 100%)}
@@ -173,20 +169,15 @@ footer a:hover{color:var(--ink)}
     <div class="coming"><span>다음 전시를 준비하고 있습니다</span><span>2027 공개</span></div>
   </section>
 
-  <section class="sec" id="only">
-    <div class="h"><h2>특징</h2></div>
-    <div class="works">
-      <div class="wk">        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/><path d="M8 13a4 4 0 0 0 8 0"/></svg></div>
-        <h3>다양한 체험</h3><p>AR, 사물인식, 공간인식까지. 전시마다 다른 체험이 열립니다.</p></div>
-      <div class="wk">        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg></div>
-        <h3>관람 아카이브</h3><p>참여하고 구경한 전시가 나의 기록으로 남습니다.</p></div>
-      <div class="wk">        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg></div>
-        <h3>티켓과 입장</h3><p>예매번호 등록부터 QR 입장까지 앱 하나로 끝납니다.</p></div>
+  <section class="bandx" id="only">
+    <div class="cap">WHY KIPPU</div>
+    <h2>입장부터 체험, 기록까지</h2>
+    <div class="rows">
+      <div class="rw"><h3>다양한 체험</h3><p>AR, 사물인식, 공간인식. 전시마다 다른 체험 장치가 열립니다.</p></div>
+      <div class="rw"><h3>관람 아카이브</h3><p>참여하고 구경한 전시가 나의 기록으로 남습니다.</p></div>
+      <div class="rw"><h3>티켓과 입장</h3><p>예매번호를 등록하면 QR 입장권이 됩니다.</p></div>
     </div>
-  </section>
-
-  <section class="sec" id="app">
-    <div class="appstrip">
+    <div class="open" id="app">
       <b><i>KIPPU</i> 앱</b>
       <span>2026년 11월 · App Store / Google Play 공개</span>
     </div>
