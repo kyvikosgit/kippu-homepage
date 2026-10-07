@@ -3,8 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KIPPU — 전시 티켓과 경험</title>
-<meta name="description" content="전시를 보는 것에서, 겪는 것으로. 예매·입장·해설·수집·보상까지, 관람 전체를 하나의 경험으로 설계하는 앱.">
+<title>KIPPU — 전시 관람 앱</title>
+<meta name="description" content="관람의 모든 순간, 곁에 두는 앱. 입장부터 체험, 관람 기록까지 한 앱에.">
+<meta property="og:title" content="KIPPU — 전시 관람 앱">
+<meta property="og:description" content="관람의 모든 순간, 곁에 두는 앱.">
+<meta property="og:image" content="https://kippu-homepage.vercel.app/monet100-web/img/keyvisual.jpg">
+<meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='12' y='30' width='76' height='40' rx='6' fill='%23CC4725'/><circle cx='12' cy='50' r='6' fill='%23FFFFFF'/><circle cx='88' cy='50' r='6' fill='%23FFFFFF'/></svg>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
@@ -88,10 +92,11 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);
   display:flex;justify-content:space-between;align-items:center;color:var(--meta);font-size:13.5px;font-weight:600}
 
 /* KIPPU가 하는 일 — 헤어라인 그리드 + 아이콘 + 고스트 숫자 */
-.works{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink)}
+.works{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
 .wk{position:relative;padding:30px 26px 34px;border-bottom:1px solid var(--line);overflow:hidden}
-.wk:nth-child(odd){border-right:1px solid var(--line)}
-.wk:nth-child(odd){padding-left:2px}
+.wk{border-right:1px solid var(--line)}
+.wk:last-child{border-right:0}
+.wk:first-child{padding-left:2px}
 .wk .ic{position:relative;width:32px;height:32px;color:var(--brand)}
 .wk .ic svg{width:32px;height:32px}
 .wk h3{position:relative;font-size:17px;font-weight:800;letter-spacing:-.01em;margin-top:16px}
@@ -114,8 +119,7 @@ footer a:hover{color:var(--ink)}
   .search{display:none}
   .top nav a:not(.app){display:none}
   .works{grid-template-columns:1fr}
-  .wk:nth-child(odd){border-right:0;padding-left:2px}
-  .wk{padding-left:2px}
+  .wk{border-right:0;padding-left:2px}
   .feature{grid-template-columns:1fr}
   .fvis{order:-1;min-height:0;aspect-ratio:1800/2548}
   .fvis::before{background:linear-gradient(180deg,rgba(18,27,26,0) 60%,#121B1A 100%)}
@@ -141,8 +145,8 @@ footer a:hover{color:var(--ink)}
 
   <section class="mast">
     <div class="cap">EXHIBITION COMPANION</div>
-    <h1>관람의 모든 순간,<br>곁에 두는 <i>앱</i></h1>
-    <p>입장권부터 수집까지, 전시 하나를 끝까지.</p>
+    <h1>관람의 <i>모든 순간</i>,<br>곁에 두는 앱</h1>
+    <p>입장부터 체험, 관람 기록까지 한 앱에.</p>
   </section>
 
   <section class="sec" id="now">
@@ -170,14 +174,12 @@ footer a:hover{color:var(--ink)}
   </section>
 
   <section class="sec" id="only">
-    <div class="h"><h2>KIPPU가 하는 일</h2></div>
+    <div class="h"><h2>특징</h2></div>
     <div class="works">
       <div class="wk">        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/><path d="M8 13a4 4 0 0 0 8 0"/></svg></div>
         <h3>다양한 체험</h3><p>AR, 사물인식, 공간인식까지. 전시마다 다른 체험이 열립니다.</p></div>
       <div class="wk">        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg></div>
         <h3>관람 아카이브</h3><p>참여하고 구경한 전시가 나의 기록으로 남습니다.</p></div>
-      <div class="wk">        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 17a4 4 0 0 1-8 0V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2Z"/><path d="M16.7 13H19a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H7"/><path d="M 7 17h.01"/><path d="m11 8 2.3-2.3a2.4 2.4 0 0 1 3.404.004L18.6 7.6a2.4 2.4 0 0 1 .026 3.434L9.9 19.8"/></svg></div>
-        <h3>전시 전용 테마</h3><p>전시에 들어가면 앱 전체가 그 전시의 디자인으로 바뀝니다.</p></div>
       <div class="wk">        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg></div>
         <h3>티켓과 입장</h3><p>예매번호 등록부터 QR 입장까지 앱 하나로 끝납니다.</p></div>
     </div>
